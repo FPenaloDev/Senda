@@ -40,16 +40,16 @@
         z-index: 3;
         width: 99.8%;
         left:0.1;
-        height: 5vh;
+        height: 8.5vh;
         padding: 5px 0;
     }
 
     nav .logo {
-        max-height: 4.5vh;
+        max-height: 7.5vh;
     }
     nav .bandera {
-        width: 3.5vh;
-        height: 3.5vh;
+        width: 5vh;
+        height: 5vh;
         margin: 1vh;
         cursor: pointer;
         border-radius: 50px;
@@ -70,7 +70,7 @@
     }
 
     .seccion {
-        background: #fff;
+        background: #fff !important;
         border:2px solid gray;
 
         ul {
