@@ -40,17 +40,17 @@
         z-index: 3;
         width: 99.8%;
         left:0.1;
-        height: 50px;
+        height: 5vh;
         padding: 5px 0;
     }
 
     nav .logo {
-        max-height: 45px;
+        max-height: 4.5vh;
     }
     nav .bandera {
-        width: 30px;
-        height: 30px;
-        margin: 10px;
+        width: 3vh;
+        height: 3vh;
+        margin: 1vh;
         cursor: pointer;
         border-radius: 20px;
         border:1.5px solid #fff;
@@ -58,7 +58,7 @@
     }
 
     .banderas img {
-        width: 25px;
+        width: 2.5vh;
     }
 
     h1 {
