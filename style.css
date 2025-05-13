@@ -103,7 +103,7 @@
 
     .descripcion-plato {
         text-align: left;
-        max-width:90%;
+        max-width:80%;
         margin: auto;
         margin-bottom: 15px;
     }
@@ -123,13 +123,13 @@
             color: white;
             background: none;
             margin: 0;
-            font-size: 2vh;
+            font-size: 4vh;
             text-align: left;
         }
 
         img {
             margin-left:2vh;
-            max-width: 5vh;
+            max-width: 6vh;
             object-fit: contain;
         }
     }
@@ -140,7 +140,7 @@
 
         h2 {
             text-align: center;
-            font-size: 1.8vh;
+            font-size: 3.5vh;
         }
     }
 
@@ -151,12 +151,13 @@
         
         img {
             aspect-ratio: 1/1;
-            max-width: 3.5vh;
+            max-width: 5vh;
             object-fit: contain;
         }
     }
     
     .texto-alergenos {
+        max-width:80%;
         text-align: center;
         margin: 15px auto;
         background:#d8b403;
