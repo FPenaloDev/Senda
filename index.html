@@ -321,6 +321,25 @@
         import { ensaladas } from './js/ensaladas.js';
         import { arroces } from './js/arroces.js';
 
+        document.addEventListener("DOMContentLoaded", function () {
+          const titulos = document.querySelectorAll('.titulo_principal');
+        
+          titulos.forEach(titulo => {
+            const contenido = titulo.nextElementSibling;
+            if (contenido) {
+              contenido.style.display = 'none';
+            }
+        
+            titulo.addEventListener('click', () => {
+              if (contenido.style.display === 'none') {
+                contenido.style.display = 'block';
+              } else {
+                contenido.style.display = 'none';
+              }
+            });
+          });
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             const titulo = document.querySelectorAll('.titulo h2');
             titulo.forEach(item => {
