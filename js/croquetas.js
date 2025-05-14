@@ -8,17 +8,17 @@ export const croquetas = [
         es: {
             title: 'Jamon',
             description: '',
-            allergens: []
+            allergens: [alergenos.gluten.es,alergenos.leche.es,alergenos.huevos.es]
         },
         en: {
             title: 'HAM',
             description: '',
-            allergens: []
+            allergens: [alergenos.gluten.en,alergenos.leche.en,alergenos.huevos.en]
         },
         fr: {
             title: "JAMBON",
             description: "",
-            allergens: []
+            allergens: [alergenos.gluten.fr,alergenos.leche.fr,alergenos.huevos.fr]
         }
     },
     {
@@ -28,17 +28,17 @@ export const croquetas = [
         es: {
             title: 'Queso Azul',
             description: '',
-            allergens: []
+            allergens: [alergenos.gluten.es,alergenos.leche.es,alergenos.huevos.es]
         },
         en: {
             title: 'BLUE CHEESE',
             description: '',
-            allergens: []
+            allergens: [alergenos.gluten.en,alergenos.leche.en,alergenos.huevos.en]
         },
         fr: {
             title: 'FROMAGE BLEU',
             description: "",
-            allergens: []
+            allergens: [alergenos.gluten.fr,alergenos.leche.fr,alergenos.huevos.fr]
         }
     },
     {
@@ -48,17 +48,17 @@ export const croquetas = [
         es: {
             title: 'Rabo de Toro',
             description: '',
-            allergens: []
+            allergens: [alergenos.gluten.es,alergenos.leche.es,alergenos.huevos.es]
         },
         en: {
             title: 'OX TAIL',
             description: '',
-            allergens: []
+            allergens: [alergenos.gluten.en,alergenos.leche.en,alergenos.huevos.en]
         },
         fr: {
             title: 'QUEUE DE BŒUF',
             description: "",
-            allergens: []
+            allergens: [alergenos.gluten.fr,alergenos.leche.fr,alergenos.huevos.fr]
         }
     },
     {
@@ -68,17 +68,17 @@ export const croquetas = [
         es: {
             title: 'BOLETUS',
             description: '',
-            allergens: []
+            allergens: [alergenos.gluten.es,alergenos.leche.es,alergenos.huevos.es]
         },
         en: {
             title: 'BOLETUS',
             description: '',
-            allergens: []
+            allergens: [alergenos.gluten.en,alergenos.leche.en,alergenos.huevos.en]
         },
         fr: {
             title: 'BOLET',
             description: "",
-            allergens: []
+            allergens: [alergenos.gluten.fr,alergenos.leche.fr,alergenos.huevos.fr]
         }
     },
     {
@@ -88,17 +88,17 @@ export const croquetas = [
         es: {
             title: 'Jamon (sin gluten)',
             description: '',
-            allergens: []
+            allergens: [alergenos.leche.es,alergenos.huevos.es]
         },
         en: {
             title: 'HAM (GLUTEN-FREE)',
             description: '',
-            allergens: []
+            allergens: [alergenos.leche.en,alergenos.huevos.en]
         },
         fr: {
             title: 'JAMBON (SANS GLUTEN)',
             description: "",
-            allergens: []
+            allergens: [alergenos.leche.fr,alergenos.huevos.fr]
         }
     },
 ];
