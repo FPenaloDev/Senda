@@ -357,6 +357,96 @@
                     <img src="recursos/emojis-secciones/Raciones.png" alt="">
                     <h1>RACIONES</h1>
                 </div>
+                <ul>
+                    <li class="raciones1">
+                        <div class="titulo">
+                            <h2>Huevos rotos con jamón o picadillo</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://media-cdn.tripadvisor.com/media/photo-s/0a/78/56/13/j-d-custom-bar.jpg" alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                            <img src="recursos/alergenos/Huevos.png" alt="moluscos"><br>
+                        </div>
+                        <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Huevos</i>
+                        </p>
+                    </li>
+                    <li class="raciones2">
+                        <div class="titulo">
+                            <h2>Huevos rotos con gulas</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://www.annarecetasfaciles.com/files/huevos-rotos-gulas-portada-1-815x458.jpg"
+                            alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                            <img src="recursos/alergenos/Huevos.png" alt="Huevos">
+                            <img src="recursos/alergenos/Pescado.png" alt="Pescados">
+                        </div>
+                        <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Huevos, Pescado</i>
+                        </p>
+                    </li>
+                    <li class="raciones3">
+                        <div class="titulo">
+                            <h2>Revuelto de morcilla</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://img-global.cpcdn.com/recipes/a8c33486f7bd4934/680x482cq70/revuelto-de-morcilla-foto-principal.jpg"
+                            alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                            <img src="recursos/alergenos/Huevos.png" alt="Huevos">
+                        </div>
+                        <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Huevos</i>
+                        </p>
+                    </li>
+                    <li class="raciones4">
+                        <div class="titulo">
+                            <h2>Oreja a la plancha</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://img-global.cpcdn.com/recipes/dd976b9fb447ee3b/1200x630cq70/photo.jpg" alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                        </div>
+                    </li>
+                    <li class="raciones5">
+                        <div class="titulo">
+                            <h2>Alitas de pollo (12 UND)</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://www.restaurantesmadridmadriz.es/wp-content/uploads/2020/05/alitas-de-pollo-1.jpg"
+                            alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                        </div>
+                    </li>
+                    <li class="raciones6">
+                        <div class="titulo">
+                            <h2>Pollo al ajillo</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6m9e0UTy8WfHHab7xLyIFJVb951inmh3Ckw&s"
+                            alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                        </div>
+                    </li>
+                    <li class="raciones7">
+                        <div class="titulo">
+                            <h2>Bandidos</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://i.ytimg.com/vi/VOq-Y_48YrQ/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA7hG6bK_ZUd6Rf4hs3LQG23yzTUg"
+                            alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                            <img src="recursos/alergenos/Gluten.png" alt="Gluten">
+                        </div>
+                        <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Gluten</i>
+                        </p>
+                    </li>
+                </ul>
             </div>
             <div class="baguettes seccion">
                 <div class="titulo_principal">
@@ -404,26 +494,27 @@
         import { carnes } from './js/carnes.js';
         import { pescados } from './js/pescados.js';
         import { croquetas } from './js/croquetas.js';
+        import { raciones } from './js/raciones.js';
 
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const titulos = document.querySelectorAll('.titulo_principal');
-
-            titulos.forEach(titulo => {
-                const contenido = titulo.nextElementSibling;
-                if (contenido) {
-                    contenido.style.display = 'none';
-                }
-
-                titulo.addEventListener('click', () => {
-                    if (contenido.style.display === 'none') {
-                        contenido.style.display = 'block';
-                    } else {
-                        contenido.style.display = 'none';
-                    }
-                });
-            });
-        });
+        /*         document.addEventListener("DOMContentLoaded", function () {
+                    const titulos = document.querySelectorAll('.titulo_principal');
+        
+                    titulos.forEach(titulo => {
+                        const contenido = titulo.nextElementSibling;
+                        if (contenido) {
+                            contenido.style.display = 'none';
+                        }
+        
+                        titulo.addEventListener('click', () => {
+                            if (contenido.style.display === 'none') {
+                                contenido.style.display = 'block';
+                            } else {
+                                contenido.style.display = 'none';
+                            }
+                        });
+                    });
+                }); */
 
         document.addEventListener('DOMContentLoaded', () => {
             const titulo = document.querySelectorAll('.titulo h2');
@@ -492,6 +583,15 @@
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE :</strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
                 });
 
+                raciones.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE :</strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
             });
 
             enBtn.addEventListener('click', () => {
@@ -549,6 +649,16 @@
                     if (descriptionEl) descriptionEl.textContent = item.en.description;
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
                 });
+
+                raciones.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
             });
 
             frBtn.addEventListener('click', () => {
@@ -584,7 +694,7 @@
 
                     if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
                     if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
                 });
 
                 pescados.forEach(item => {
@@ -594,7 +704,7 @@
 
                     if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
                     if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
                 });
 
                 croquetas.forEach(item => {
@@ -604,7 +714,17 @@
 
                     if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
                     if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                raciones.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
                 });
             });
 
