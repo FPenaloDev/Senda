@@ -82,6 +82,7 @@
     li {
         box-shadow: 6px 6px 10px gray;
         padding:10px;
+        padding-bottom:0.83em;
         border-radius:20px;
         border:1.5px solid gray;
         margin-bottom:20px;
