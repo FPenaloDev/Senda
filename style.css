@@ -98,6 +98,8 @@
         margin: auto;
         display:block;
         margin-bottom: 5px;
+        aspect-ratio:16/9;
+        object-fit:cover;
     }
 
     .descripcion-plato {
