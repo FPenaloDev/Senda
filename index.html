@@ -403,6 +403,7 @@
         import { arroces } from './js/arroces.js';
         import { carnes } from './js/carnes.js';
         import { pescados } from './js/pescados.js';
+        import { croquetas } from './js/croquetas.js';
 
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -481,6 +482,16 @@
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE :</strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
                 });
 
+                croquetas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE :</strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
             });
 
             enBtn.addEventListener('click', () => {
@@ -529,6 +540,15 @@
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
                 });
 
+                croquetas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
             });
 
             frBtn.addEventListener('click', () => {
@@ -577,6 +597,15 @@
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
                 });
 
+                croquetas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
             });
 
         });
