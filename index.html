@@ -451,7 +451,9 @@
                         <div class="titulo">
                             <h2>Nuggets de pollo</h2>
                         </div>
-                        <img class="muestra" src="https://imag.bonviveur.com/nuggets-en-freidora-de-aire.jpg" alt="">
+                        <img class="muestra"
+                            src="https://imag.bonviveur.com/nuggets-en-freidora-de-aire.jpg"
+                            alt="">
                         <p class="descripcion-plato"></p>
                         <div class="alergenos">
                             <img src="recursos/alergenos/Gluten.png" alt="Gluten">
@@ -476,8 +478,7 @@
                             <img src="recursos/alergenos/Mostaza.png" alt="Mostaza">
                             <img src="recursos/alergenos/Leche.png" alt="Leche">
                         </div>
-                        <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Gluten, Huevo, Moluscos, Pescado,
-                                Soja, Mostaza, Leche</i>
+                        <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Gluten, Huevo, Moluscos, Pescado, Soja, Mostaza, Leche</i>
                         </p>
                     </li>
                     <li class="raciones10">
@@ -485,7 +486,8 @@
                             <h2>Salchipapas</h2>
                         </div>
                         <img class="muestra"
-                            src="https://comedera.com/wp-content/uploads/sites/9/2021/07/salchipapas.jpg" alt="">
+                            src="https://comedera.com/wp-content/uploads/sites/9/2021/07/salchipapas.jpg"
+                            alt="">
                         <p class="descripcion-plato"></p>
                         <div class="alergenos">
                         </div>
@@ -505,7 +507,9 @@
                         <div class="titulo">
                             <h2>Patatas Bravas</h2>
                         </div>
-                        <img class="muestra" src="https://i.ytimg.com/vi/5lA5PwjHMjY/sddefault.jpg" alt="">
+                        <img class="muestra"
+                            src="https://i.ytimg.com/vi/5lA5PwjHMjY/sddefault.jpg"
+                            alt="">
                         <p class="descripcion-plato"></p>
                         <div class="alergenos">
                         </div>
@@ -561,24 +565,24 @@
         import { raciones } from './js/raciones.js';
 
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const titulos = document.querySelectorAll('.titulo_principal');
-
-            titulos.forEach(titulo => {
-                const contenido = titulo.nextElementSibling;
-                if (contenido) {
-                    contenido.style.display = 'none';
-                }
-
-                titulo.addEventListener('click', () => {
-                    if (contenido.style.display === 'none') {
-                        contenido.style.display = 'block';
-                    } else {
-                        contenido.style.display = 'none';
-                    }
-                });
-            });
-        });
+        /*         document.addEventListener("DOMContentLoaded", function () {
+                    const titulos = document.querySelectorAll('.titulo_principal');
+        
+                    titulos.forEach(titulo => {
+                        const contenido = titulo.nextElementSibling;
+                        if (contenido) {
+                            contenido.style.display = 'none';
+                        }
+        
+                        titulo.addEventListener('click', () => {
+                            if (contenido.style.display === 'none') {
+                                contenido.style.display = 'block';
+                            } else {
+                                contenido.style.display = 'none';
+                            }
+                        });
+                    });
+                }); */
 
         document.addEventListener('DOMContentLoaded', () => {
             const titulo = document.querySelectorAll('.titulo h2');
