@@ -141,4 +141,84 @@ export const raciones = [
             allergens: [alergenos.gluten.fr]
         }
     },
+    {
+        selectorTitle: '.raciones .raciones8 h2',
+        selectorDescription: '.raciones .raciones8 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones8 .texto-alergenos',
+        es: {
+            title: 'Nuggets de pollo',
+            description: '',
+            allergens: [alergenos.gluten.es]
+        },
+        en: {
+            title: 'CHICKEN NUGGETS',
+            description: '',
+            allergens: [alergenos.gluten.en]
+        },
+        fr: {
+            title: 'NUGGETS DE POULET',
+            description: "",
+            allergens: [alergenos.gluten.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones9 h2',
+        selectorDescription: '.raciones .raciones9 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones9 .texto-alergenos',
+        es: {
+            title: 'POLLO SENDA 44',
+            description: '',
+            allergens: [alergenos.gluten.es,alergenos.huevos.es,alergenos.moluscos.es,alergenos.pescado.es,alergenos.soja.es,alergenos.mostaza.es,alergenos.leche.es]
+        },
+        en: {
+            title: 'CHICKEN SENDA 44',
+            description: '',
+            allergens: [alergenos.gluten.en,alergenos.huevos.en,alergenos.moluscos.en,alergenos.pescado.en,alergenos.soja.en,alergenos.mostaza.en,alergenos.leche.en]
+        },
+        fr: {
+            title: 'Poulet Senda 44',
+            description: "",
+            allergens: [alergenos.gluten.fr,alergenos.huevos.fr,alergenos.moluscos.fr,alergenos.pescado.fr,alergenos.soja.fr,alergenos.mostaza.fr,alergenos.leche.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones10 h2',
+        selectorDescription: '.raciones .raciones10 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones10 .texto-alergenos',
+        es: {
+            title: 'SALCHIPAPAS',
+            description: '',
+            allergens: []
+        },
+        en: {
+            title: 'FRIES WITH SAUSAGE',
+            description: '',
+            allergens: []
+        },
+        fr: {
+            title: 'FRITES AVEC SAUCISSES',
+            description: "",
+            allergens: []
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones11 h2',
+        selectorDescription: '.raciones .raciones10 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones10 .texto-alergenos',
+        es: {
+            title: 'PATATAS FRITAS',
+            description: '',
+            allergens: []
+        },
+        en: {
+            title: 'FRENCH FRIES',
+            description: '',
+            allergens: []
+        },
+        fr: {
+            title: 'FRITES',
+            description: "",
+            allergens: []
+        }
+    },
 ];

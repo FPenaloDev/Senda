@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Senda 44</title>
+    <link rel="icon" href="recursos/logo_senda_negro.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -446,6 +447,69 @@
                         <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Gluten</i>
                         </p>
                     </li>
+                    <li class="raciones8">
+                        <div class="titulo">
+                            <h2>Nuggets de pollo</h2>
+                        </div>
+                        <img class="muestra" src="https://imag.bonviveur.com/nuggets-en-freidora-de-aire.jpg" alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                            <img src="recursos/alergenos/Gluten.png" alt="Gluten">
+                        </div>
+                        <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Gluten</i>
+                        </p>
+                    </li>
+                    <li class="raciones9">
+                        <div class="titulo">
+                            <h2>Pollo senda 44</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://img-global.cpcdn.com/recipes/20d963213c50873e/680x482cq70/pollo-estilo-kfc-foto-principal.jpg"
+                            alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                            <img src="recursos/alergenos/Gluten.png" alt="Gluten">
+                            <img src="recursos/alergenos/Huevos.png" alt="Huevos">
+                            <img src="recursos/alergenos/Moluscos.png" alt="Moluscos">
+                            <img src="recursos/alergenos/Pescado.png" alt="Pescado">
+                            <img src="recursos/alergenos/Soja.png" alt="Soja">
+                            <img src="recursos/alergenos/Mostaza.png" alt="Mostaza">
+                            <img src="recursos/alergenos/Leche.png" alt="Leche">
+                        </div>
+                        <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Gluten, Huevo, Moluscos, Pescado,
+                                Soja, Mostaza, Leche</i>
+                        </p>
+                    </li>
+                    <li class="raciones10">
+                        <div class="titulo">
+                            <h2>Salchipapas</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://comedera.com/wp-content/uploads/sites/9/2021/07/salchipapas.jpg" alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                        </div>
+                    </li>
+                    <li class="raciones11">
+                        <div class="titulo">
+                            <h2>Patatas Fritas</h2>
+                        </div>
+                        <img class="muestra"
+                            src="https://www.publico.es/ahorro-consumo-responsable/wp-content/uploads/2022/04/fritas-1024x576.jpg"
+                            alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                        </div>
+                    </li>
+                    <li class="raciones12">
+                        <div class="titulo">
+                            <h2>Patatas Bravas</h2>
+                        </div>
+                        <img class="muestra" src="https://i.ytimg.com/vi/5lA5PwjHMjY/sddefault.jpg" alt="">
+                        <p class="descripcion-plato"></p>
+                        <div class="alergenos">
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="baguettes seccion">
@@ -497,24 +561,24 @@
         import { raciones } from './js/raciones.js';
 
 
-        /*         document.addEventListener("DOMContentLoaded", function () {
-                    const titulos = document.querySelectorAll('.titulo_principal');
-        
-                    titulos.forEach(titulo => {
-                        const contenido = titulo.nextElementSibling;
-                        if (contenido) {
-                            contenido.style.display = 'none';
-                        }
-        
-                        titulo.addEventListener('click', () => {
-                            if (contenido.style.display === 'none') {
-                                contenido.style.display = 'block';
-                            } else {
-                                contenido.style.display = 'none';
-                            }
-                        });
-                    });
-                }); */
+        document.addEventListener("DOMContentLoaded", function () {
+            const titulos = document.querySelectorAll('.titulo_principal');
+
+            titulos.forEach(titulo => {
+                const contenido = titulo.nextElementSibling;
+                if (contenido) {
+                    contenido.style.display = 'none';
+                }
+
+                titulo.addEventListener('click', () => {
+                    if (contenido.style.display === 'none') {
+                        contenido.style.display = 'block';
+                    } else {
+                        contenido.style.display = 'none';
+                    }
+                });
+            });
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             const titulo = document.querySelectorAll('.titulo h2');
