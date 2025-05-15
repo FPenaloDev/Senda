@@ -203,8 +203,8 @@ export const raciones = [
     },
     {
         selectorTitle: '.raciones .raciones11 h2',
-        selectorDescription: '.raciones .raciones10 .descripcion-plato',
-        selectorAllergens: '.raciones .raciones10 .texto-alergenos',
+        selectorDescription: '.raciones .raciones11 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones11 .texto-alergenos',
         es: {
             title: 'PATATAS FRITAS',
             description: '',
@@ -217,6 +217,26 @@ export const raciones = [
         },
         fr: {
             title: 'FRITES',
+            description: "",
+            allergens: []
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones12 h2',
+        selectorDescription: '.raciones .raciones12 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones12 .texto-alergenos',
+        es: {
+            title: 'PATATAS BRAVAS',
+            description: '',
+            allergens: []
+        },
+        en: {
+            title: 'SPICY POTATOES',
+            description: '',
+            allergens: []
+        },
+        fr: {
+            title: 'POMMES DE TERRE ÉPICÉES',
             description: "",
             allergens: []
         }
