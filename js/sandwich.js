@@ -61,4 +61,24 @@ export const sandwichs = [
             allergens: [alergenos.gluten.fr,alergenos.pescado.fr,alergenos.huevos.fr]
         }
     },
+    {
+        selectorTitle: '.sandwichs .sandwichs4 h2',
+        selectorDescription: '.sandwichs .sandwichs4 .descripcion-plato',
+        selectorAllergens: '.sandwichs .sandwichs4 .texto-alergenos',
+        es: {
+            title: "Sándwich mixto vegetal",
+            description: "Jamón york, queso, mayonesa, lechuga, cebolla, tomate, atún, huevo y esparrago.",
+            allergens: [alergenos.gluten.es,alergenos.leche.es,alergenos.pescado.es,alergenos.huevos.es]
+        },
+        en: {
+            title: "MIXED VEGETABLE SANDWICH",
+            description: "Ham, cheese, mayonnaise, lettuce, onion, tomato, tuna, egg and asparagus.",
+            allergens: [alergenos.gluten.en,alergenos.leche.en,alergenos.pescado.en,alergenos.huevos.en]
+        },
+        fr: {
+            title: "SANDWICH AUX LÉGUMES MÉLANGÉS",
+            description: "Jambon, fromage, mayonnaise, laitue, oignon, tomate, thon, œuf et asperges.",
+            allergens: [alergenos.gluten.fr,alergenos.leche.fr,alergenos.pescado.fr,alergenos.huevos.fr]
+        }
+    },
 ];
