@@ -241,4 +241,184 @@ export const raciones = [
             allergens: []
         }
     },
+    {
+        selectorTitle: '.raciones .raciones13 h2',
+        selectorDescription: '.raciones .raciones13 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones13 .texto-alergenos',
+        es: {
+            title: 'PATATAS BRAVIOLIS',
+            description: '',
+            allergens: [alergenos.leche.es]
+        },
+        en: {
+            title: 'BRAVIOLI POTATOES',
+            description: '',
+            allergens: [alergenos.leche.en]
+        },
+        fr: {
+            title: 'POMMES DE TERRE BRAVIOLIS',
+            description: "",
+            allergens: [alergenos.leche.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones14 h2',
+        selectorDescription: '.raciones .raciones14 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones14 .texto-alergenos',
+        es: {
+            title: 'PATATAS BACON CHEESE',
+            description: '',
+            allergens: [alergenos.leche.es]
+        },
+        en: {
+            title: 'BACON & CHEESE FRIES',
+            description: '',
+            allergens: [alergenos.leche.en]
+        },
+        fr: {
+            title: 'FRITES AU FROMAGE ET BACON',
+            description: "",
+            allergens: [alergenos.leche.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones15 h2',
+        selectorDescription: '.raciones .raciones15 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones15 .texto-alergenos',
+        es: {
+            title: 'FINGER MOZZARELLA',
+            description: '',
+            allergens: [alergenos.leche.es,alergenos.gluten.es]
+        },
+        en: {
+            title: 'MOZZARELLA STICKS',
+            description: '',
+            allergens: [alergenos.leche.en,alergenos.gluten.en]
+        },
+        fr: {
+            title: 'BÂTONNETS DE MOZZARELLA',
+            description: "",
+            allergens: [alergenos.leche.fr,alergenos.gluten.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones16 h2',
+        selectorDescription: '.raciones .raciones16 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones16 .texto-alergenos',
+        es: {
+            title: 'JALAPEÑOS',
+            description: '',
+            allergens: [alergenos.leche.es,alergenos.gluten.es]
+        },
+        en: {
+            title: 'JALAPEÑOS',
+            description: '',
+            allergens: [alergenos.leche.en,alergenos.gluten.en]
+        },
+        fr: {
+            title: 'JALAPEÑOS',
+            description: "",
+            allergens: [alergenos.leche.fr,alergenos.gluten.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones17 h2',
+        selectorDescription: '.raciones .raciones17 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones17 .texto-alergenos',
+        es: {
+            title: 'CALAMARES',
+            description: '',
+            allergens: [alergenos.gluten.es,alergenos.pescado.es]
+        },
+        en: {
+            title: 'SQUID',
+            description: '',
+            allergens: [alergenos.gluten.en,alergenos.pescado.en]
+        },
+        fr: {
+            title: 'CALAMARS',
+            description: "",
+            allergens: [alergenos.gluten.fr,alergenos.pescado.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones18 h2',
+        selectorDescription: '.raciones .raciones18 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones18 .texto-alergenos',
+        es: {
+            title: 'CHOPITOS',
+            description: '',
+            allergens: [alergenos.gluten.es,alergenos.pescado.es]
+        },
+        en: {
+            title: 'BABY SQUID',
+            description: '',
+            allergens: [alergenos.gluten.en,alergenos.pescado.en]
+        },
+        fr: {
+            title: 'PETIT CALAMARS',
+            description: "",
+            allergens: [alergenos.gluten.fr,alergenos.pescado.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones19 h2',
+        selectorDescription: '.raciones .raciones19 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones19 .texto-alergenos',
+        es: {
+            title: 'GAMBAS AL AJILLO',
+            description: '',
+            allergens: [alergenos.pescado.es]
+        },
+        en: {
+            title: 'GARLIC SHRIMP',
+            description: '',
+            allergens: [alergenos.pescado.en]
+        },
+        fr: {
+            title: 'CREVETTES À L’AIL',
+            description: "",
+            allergens: [alergenos.pescado.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones20 h2',
+        selectorDescription: '.raciones .raciones20 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones20 .texto-alergenos',
+        es: {
+            title: 'BOQUERONES FRITOS',
+            description: '',
+            allergens: [alergenos.pescado.es,alergenos.gluten.es]
+        },
+        en: {
+            title: 'FRIED ANCHOVIES',
+            description: '',
+            allergens: [alergenos.pescado.en,alergenos.gluten.en]
+        },
+        fr: {
+            title: 'ANCHOIS FRITS',
+            description: "",
+            allergens: [alergenos.pescado.fr,alergenos.gluten.fr]
+        }
+    },
+    {
+        selectorTitle: '.raciones .raciones21 h2',
+        selectorDescription: '.raciones .raciones21 .descripcion-plato',
+        selectorAllergens: '.raciones .raciones21 .texto-alergenos',
+        es: {
+            title: 'Gambas a la gabardina',
+            description: '',
+            allergens: [alergenos.moluscos.es,alergenos.gluten.es,alergenos.leche.es,alergenos.soja.es,alergenos.mostaza.es]
+        },
+        en: {
+            title: 'BATTERED SHRIMP',
+            description: '',
+            allergens: [alergenos.moluscos.en,alergenos.gluten.en,alergenos.leche.en,alergenos.soja.en,alergenos.mostaza.en]
+        },
+        fr: {
+            title: 'CREVETTES EN GABARDINE',
+            description: "",
+            allergens: [alergenos.moluscos.fr,alergenos.gluten.fr,alergenos.leche.fr,alergenos.soja.fr,alergenos.mostaza.fr]
+        }
+    },
 ];
