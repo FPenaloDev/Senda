@@ -39,7 +39,7 @@
                             esparrago y atún.</p>
                         <div class="alergenos">
                             <img src="recursos/alergenos/Pescado.png" alt="pescado">
-                            <img src="recursos/alergenos/Huevos.png" alt="huevo"><br>
+                            <img src="recursos/alergenos/Huevos.png" alt="huevo">
                         </div>
                         <p class="texto-alergenos"><strong>CONTIENE :</strong><i>&nbsp;Pescado, Huevo</i></p>
                     </li>
@@ -921,6 +921,7 @@
     </div>
 
     <script type="module">
+        import { precios } from './js/precios.js';
         import { titulos } from './js/titulos.js';
         import { ensaladas } from './js/ensaladas.js';
         import { arroces } from './js/arroces.js';
@@ -951,6 +952,30 @@
                 });
             });
         });
+
+
+        // insertarPrecios.js
+        document.addEventListener('DOMContentLoaded', () => {
+            for (const selector in precios) {
+                const precio = precios[selector];
+                const elementos = document.querySelectorAll(selector);
+
+                elementos.forEach((elemento) => {
+                    // Asegúrate de que sea un <li> o contenga uno
+                    const li = elemento.tagName === 'LI' ? elemento : elemento.closest('li');
+                    if (!li) return;
+
+                    // Crear el div del precio
+                    const divPrecio = document.createElement('div');
+                    divPrecio.className = 'precio-articulo';
+                    divPrecio.textContent = precio;
+
+                    // Insertar al final del <li>
+                    li.appendChild(divPrecio);
+                });
+            }
+        });
+
 
         document.addEventListener('DOMContentLoaded', () => {
             const titulo = document.querySelectorAll('.titulo h2');
