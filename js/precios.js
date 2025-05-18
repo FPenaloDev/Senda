@@ -67,5 +67,13 @@ export const precios = {
   '.tostas .tostas5': '11,00 €',
   '.tostas .tostas6': '10,00 €',
   '.tostas .tostas7': '11,00 €',
+  '.hamburguesas .hamburguesas1':'4,00€',
+  '.hamburguesas .hamburguesas2':'4,50€',
+  '.hamburguesas .hamburguesas3':'5,00€',
+  '.hamburguesas .hamburguesas4':'5,50€',
+  '.hamburguesas .hamburguesas5':'8,00€',
+  '.hamburguesas .hamburguesas6':'10,00€',
+  '.hamburguesas .hamburguesas7':'11,00€',
+  '.hamburguesas .hamburguesas8':'15,00€',
   // Agrega más selectores y precios según sea necesario
 };
