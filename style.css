@@ -224,17 +224,17 @@ li p {
 }
 
 .precio-articulo {
-    max-width: 80%;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 3vh;
     color: #e0e0e0;
     background: linear-gradient(135deg, #0d0d0d, #010101);
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 6px 12px;
     margin-top: 8px;
-    width: max-content;
+    margin-right:auto;
+    display:inline-block;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
     transition: transform 0.2s ease;
 }
