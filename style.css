@@ -42,6 +42,21 @@ nav {
     padding: 5px 0;
 }
 
+.footer {
+    height:7vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #000000d2;
+    color:#fff;
+    padding:0 1vh;
+    font-size:1.75vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 3;
+}
+
 nav .logo {
     max-height: 7.5vh;
 }
@@ -66,6 +81,25 @@ h1 {
     margin-top: 0;
     padding: 10px;
 
+}
+
+.productos {
+    padding-bottom:7vh;
+    background:#000;
+}
+
+.info {
+    text-align: center;
+    padding: 0 10px 20px 10px;
+    display:flex;
+    justify-content: space-between;
+    text-decoration: underline;
+    font-size: 2.3vh;
+    font-weight:bold;
+}
+
+.info.pizzas {
+    justify-content: center;
 }
 
 .seccion {

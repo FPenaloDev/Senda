@@ -61,5 +61,11 @@ export const precios = {
   '.sandwichs .sandwichs3': '4,50 €',
   '.sandwichs .sandwichs4': '6,00 €',
   '.tostas .tostas1': '8,00 €',
+  '.tostas .tostas2': '8,00 €',
+  '.tostas .tostas3': '9,50 €',
+  '.tostas .tostas4': '10,00 €',
+  '.tostas .tostas5': '11,00 €',
+  '.tostas .tostas6': '10,00 €',
+  '.tostas .tostas7': '11,00 €',
   // Agrega más selectores y precios según sea necesario
 };
