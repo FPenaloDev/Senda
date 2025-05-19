@@ -84,5 +84,17 @@ export const precios = {
   '.pizzas .pizzas7':'11,00€',
   '.pizzas .pizzas8':'13,00€',
   '.pizzas .pizzas9':'11,00€',
+  '.postres .postres1':'4,50€',
+  '.postres .postres2':'4,50€',
+  '.postres .postres3':'4,50€',
+  '.postres .postres4':'4,50€',
+  '.postres .postres5':'4,50€',
+  '.postres .postres6':'4,50€',
+  '.postres .postres7':'4,50€',
+  '.postres .postres8':'5,00€',
+  '.postres .postres9':'4,00€',
+  '.postres .postres10':'5,50€',
+  '.postres .postres11':'5,50€',
+  '.postres .postres12':'4,50€',
   // Agrega más selectores y precios según sea necesario
 };

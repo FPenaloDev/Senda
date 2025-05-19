@@ -121,4 +121,64 @@ export const pizzas = [
             allergens: [alergenos.gluten.fr,alergenos.leche.fr]
         }
     },
+    {
+        selectorTitle: '.pizzas .pizzas7 h2',
+        selectorDescription: '.pizzas .pizzas7 .descripcion-plato',
+        selectorAllergens: '.pizzas .pizzas7 .texto-alergenos',
+        es: {
+            title: "Pizza serrana",
+            description: "Base de tomate, queso, jamón serrano, aceitunas negras y oregano",
+            allergens: [alergenos.gluten.es,alergenos.leche.es]
+        },
+        en: {
+            title: "SERRANA PIZZA",
+            description: "Tomato base, cheese, cured ham, black olives and oregano.",
+            allergens: [alergenos.gluten.en,alergenos.leche.en]
+        },
+        fr: {
+            title: "PIZZA SERRANA",
+            description: "Base de tomates, fromage, jambon cru, olives noires et origan.",
+            allergens: [alergenos.gluten.fr,alergenos.leche.fr]
+        }
+    },
+    {
+        selectorTitle: '.pizzas .pizzas8 h2',
+        selectorDescription: '.pizzas .pizzas8 .descripcion-plato',
+        selectorAllergens: '.pizzas .pizzas8 .texto-alergenos',
+        es: {
+            title: "Pizza carnivora",
+            description: "Base de tomate, queso, jamón serrano, carne picada,picadillo y bacon.",
+            allergens: [alergenos.gluten.es,alergenos.leche.es]
+        },
+        en: {
+            title: "Carnivorous pizza",
+            description: "Tomato base, cheese, Serrano ham, minced meat, mince and bacon.",
+            allergens: [alergenos.gluten.en,alergenos.leche.en]
+        },
+        fr: {
+            title: "Pizza carnivore",
+            description: "Base de tomates, fromage, jambon Serrano, viande hachée, hachis et bacon.",
+            allergens: [alergenos.gluten.fr,alergenos.leche.fr]
+        }
+    },
+    {
+        selectorTitle: '.pizzas .pizzas9 h2',
+        selectorDescription: '.pizzas .pizzas9 .descripcion-plato',
+        selectorAllergens: '.pizzas .pizzas9 .texto-alergenos',
+        es: {
+            title: "PIZZA KEBAB",
+            description: "Base de tomate, salsa kebab, queso, carne kebab y cebolla.",
+            allergens: [alergenos.gluten.es]
+        },
+        en: {
+            title: "KEBAB PIZZA",
+            description: "Tomato base, kebab sauce, cheese, kebab meat and onion.",
+            allergens: [alergenos.gluten.en]
+        },
+        fr: {
+            title: "PIZZA KEBAB",
+            description: "Base de tomates, sauce kebab, fromage, viande de kebab et oignon.",
+            allergens: [alergenos.gluten.fr]
+        }
+    },
 ];
