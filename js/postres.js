@@ -241,4 +241,24 @@ export const postres = [
             allergens: [alergenos.gluten.fr,alergenos.frutosSecos.fr]
         }
     },
+    {
+        selectorTitle: '.postres .postres13 h2',
+        selectorDescription: '.postres .postres13 .descripcion-plato',
+        selectorAllergens: '.postres .postres13 .texto-alergenos',
+        es: {
+            title: "COULANT DE LOTUS",
+            description: "",
+            allergens: [alergenos.gluten.es,alergenos.soja.es,alergenos.leche.es,alergenos.huevos.es]
+        },
+        en: {
+            title: "LOTUS COULANT",
+            description: "",
+            allergens: [alergenos.gluten.en,alergenos.soja.en,alergenos.leche.en,alergenos.huevos.en]
+        },
+        fr: {
+            title: "LOTUS COULANT",
+            description: "",
+            allergens: [alergenos.gluten.fr,alergenos.soja.fr,alergenos.leche.fr,alergenos.huevos.fr]
+        }
+    },
 ];
