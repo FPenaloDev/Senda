@@ -1530,6 +1530,7 @@
                         </div>
                         <img class="muestra" src="recursos/vinos/azpilicueta.png" alt="">
                         <p class="descripcion-plato">
+                            Azpilicueta Rioja es un vino tinto elegante y equilibrado. Presenta aromas a frutas rojas maduras como cereza y ciruela, combinadas con notas especiadas, vainilla y un toque de madera. En boca es suave, con taninos redondos y un final largo y armonioso.
                         </p>
                     </li>
                     <li class="vinos2">
@@ -1674,6 +1675,7 @@
         import { hamburguesas } from './js/hamburguesas.js';
         import { pizzas } from './js/pizzas.js';
         import { postres } from './js/postres.js';
+        import { vinos } from './js/vinos.js';
 
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -1856,6 +1858,17 @@
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE :</strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
                 });
 
+                vinos.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE :</strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                
                 document.querySelector('.info.pizzas span').textContent = 'INGREDIENTE EXTRA (1.00€)';
 
                 document.querySelector('.info.hamburguesas .span1').textContent = 'INGREDIENTE EXTRA (1.00€)';
@@ -1997,6 +2010,16 @@
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
                 });
 
+                vinos.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
                 document.querySelector('.info.pizzas span').textContent = 'EXTRA INGREDIENT (1.00€)';
 
                 document.querySelector('.info.hamburguesas .span1').textContent = 'EXTRA INGREDIENT (1.00€)';
@@ -2127,6 +2150,16 @@
                 });
 
                 postres.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                vinos.forEach(item => {
                     const titleEl = document.querySelector(item.selectorTitle);
                     const descriptionEl = document.querySelector(item.selectorDescription);
                     const allergensEl = document.querySelector(item.selectorAllergens);
