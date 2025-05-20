@@ -46,7 +46,7 @@ nav {
     height: 9vh;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 97%;
     background: #000000d2;
     color: #fff;
     padding: 0 1vh;
@@ -54,6 +54,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     z-index: 3;
+    border-radius:20px 20px 0 0;
 
     p {
         margin: 1vh auto;
@@ -97,7 +98,6 @@ h1 {
     padding: 0 10px 20px 10px;
     display: flex;
     justify-content: space-between;
-    text-decoration: underline;
     font-size: 2.3vh;
     font-weight: bold;
 }
@@ -111,7 +111,6 @@ h1 {
     justify-content: center;
 
     span {
-        border: 3px solid #fff;
         padding: 5px;
         color: #fff;
         border-radius: 10px;
@@ -122,7 +121,6 @@ h1 {
     justify-content: space-between;
 
     span {
-        border: 3px solid #fff;
         padding: 5px;
         color: #fff;
         border-radius: 10px;
@@ -131,12 +129,13 @@ h1 {
 
 .seccion {
     background: #fff !important;
-    border: 5px solid gray;
+    border: 5px solid #000;
+    border-top:6px solid #332f2f;
 
     ul {
         margin: 0;
         padding: 20px 20px;
-        background: #2c3663;
+        background: #222e60;
     }
 
 }
@@ -146,8 +145,8 @@ li {
     padding: 10px;
     padding-bottom: 0.83em;
     border-radius: 20px;
-    background: #fff;
-    border: 1.5px solid gray;
+    background: #ffffffe1;
+    border: 1.5px solid #fff;
     margin-bottom: 20px;
 }
 
@@ -159,7 +158,7 @@ li .muestra {
     max-width: 80%;
     width: 100%;
     border-radius: 20px;
-    border: 2px solid gray;
+    border: 2px solid #332f2f;
     margin: auto;
     display: block;
     margin-bottom: 5px;
@@ -177,8 +176,8 @@ li .muestra {
 
 .titulo_principal {
 
-    background: #494242;
-    border-bottom: 2px solid gray;
+    background: #b75a03;
+    border-bottom: 2px solid #332f2f;
     cursor: pointer;
     display: flex;
     justify-content: left;
@@ -223,6 +222,8 @@ li .muestra {
         aspect-ratio: 1/1;
         max-width: 5vh;
         object-fit: contain;
+        background: #fff;
+        border-radius: 50%;
     }
 }
 
@@ -241,7 +242,7 @@ li .muestra {
     max-width: 80%;
     text-align: center;
     margin: 15px auto;
-    background: #d8b403;
+    background: #d88303;
     padding: 10px;
     border-radius: 10px;
     color: #fff;
@@ -269,12 +270,12 @@ li p {
 }
 
 .ensaladas {
-    border-top: 6px solid gray;
+    border-top: 6px solid #332f2f;
 }
 
 .vinos {
     .titulo_principal {
-        border-bottom: 5px solid gray;
+        border-bottom: 5px solid #332f2f;
     }
 
     .muestra {

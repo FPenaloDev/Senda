@@ -1001,8 +1001,8 @@
                 </div>
                 <ul>
                     <div class="info hamburguesas">
-                        <span>INGREDIENTE EXTRA (1.00€)</span>
-                        <span>PATATAS (1.00€)</span>
+                        <span class="span1">INGREDIENTE EXTRA (1.00€)</span>
+                        <span class="span2">PATATAS (1.00€)</span>
                     </div>
                     <li class="hamburguesas1">
                         <div class="titulo">
@@ -1559,7 +1559,8 @@
                         </p>
                     </li> -->
                     <div class="titulo-region">
-                        <h2>RIBERA</h2>
+                        <h2>RIBERA<br><span>Valladolid, Soria<br> Burgos, Segovia</span></h2>
+                        <img class="mapa" src="recursos/vinos/ribera.png">
                     </div>
                     <li class="vinos5">
                         <div class="titulo">
@@ -1609,8 +1610,8 @@
         <div class="footer">
             <p>SUPLEMENTO DE TERRAZA</p>
             <div class="info pie">
-                <span>BEBIDAS (0.20€)</span>
-                <span>COMIDAS (0.50€)</span>
+                <span class="span1">BEBIDAS (0.20€)</span>
+                <span class="span2">COMIDAS (0.50€)</span>
             </div>
         </div>
     </div>
@@ -1632,7 +1633,7 @@
         import { postres } from './js/postres.js';
 
 
-/*         document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
             const titulos = document.querySelectorAll('.titulo_principal');
 
             titulos.forEach(titulo => {
@@ -1649,7 +1650,7 @@
                     }
                 });
             });
-        }); */
+        });
 
 
         // insertarPrecios.js
@@ -1812,6 +1813,13 @@
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE :</strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
                 });
 
+                document.querySelector('.info.pizzas span').textContent = 'INGREDIENTE EXTRA (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span1').textContent = 'INGREDIENTE EXTRA (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span2').textContent = 'PATATAS (1.00€)';
+
+
             });
 
             enBtn.addEventListener('click', () => {
@@ -1940,6 +1948,17 @@
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS :</strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
                 });
 
+                document.querySelector('.info.pizzas span').textContent = 'EXTRA INGREDIENT (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span1').textContent = 'EXTRA INGREDIENT (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span2').textContent = 'POTATOES (1.00€)';
+
+                document.querySelector('.footer p').textContent = 'TERRACE SUPPLEMENT';
+
+                document.querySelector('.footer .span1').textContent = 'DRINKS (0.20€)';
+
+                document.querySelector('.footer .span2').textContent = 'MEALS (0.50€)';
             });
 
             frBtn.addEventListener('click', () => {
@@ -2067,6 +2086,18 @@
                     if (descriptionEl) descriptionEl.innerHTML = item.fr.description;
                     if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT :</strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
                 });
+
+                document.querySelector('.info.pizzas span').textContent = 'INGRÉDIENT SUPPLÉMENTAIRE (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span1').textContent = 'INGRÉDIENT SUPPLÉMENTAIRE (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span2').textContent = 'POMMES DE TERRE (1.00€)';
+
+                document.querySelector('.footer p').textContent = 'SUPPLÉMENT TERRASSE';
+
+                document.querySelector('.footer .span1').textContent = 'BOISSONS (0,20€)';
+
+                document.querySelector('.footer .span2').textContent = 'REPAS (0,50€)';
 
             });
 

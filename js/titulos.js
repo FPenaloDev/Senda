@@ -10,5 +10,6 @@ export const titulos = [
                 { selector: '.hamburguesas h1', es: 'HAMBURGUESAS', en: 'HAMBURGERS', fr: 'BURGERS' },
                 { selector: '.sandwichs h1', es: 'SANDWICHS', en: 'SANDWICHES', fr: 'SANDWICHS' },
                 { selector: '.pizzas h1', es: 'PIZZAS', en: 'PIZZAS', fr: 'PIZZAS' },
-                { selector: '.postres h1', es: 'POSTRES', en: 'DESSERTS', fr: 'DESSERTS' }
+                { selector: '.postres h1', es: 'POSTRES', en: 'DESSERTS', fr: 'DESSERTS' },
+                { selector: '.vinos h1', es: 'VINOS', en: 'WINES', fr: 'VINS' },
             ];
