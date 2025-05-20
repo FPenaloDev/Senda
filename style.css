@@ -136,7 +136,7 @@ h1 {
     ul {
         margin: 0;
         padding: 20px 20px;
-        background: #7a2020;
+        background: #2c3663;
     }
 
 }
@@ -287,16 +287,20 @@ li p {
     .titulo-region {
         display: flex;
         align-items: center;
+        justify-content: space-evenly;
         h2 {
-            background: #0000009f;
             color: #fff;
-            border-radius: 50px;
             width: max-content;
-            padding: 0.3em 1em;
+            text-align:center;
             font-size: 3.2vh;
         }
+
+        span {
+            color: #fff;
+            font-size: 1.5vh;
+        }
         .mapa {
-            max-width:10vh;
+            max-width:20vh;
         }
     }
 }
