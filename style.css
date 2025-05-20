@@ -43,21 +43,21 @@ nav {
 }
 
 .footer {
-    height:9vh;
+    height: 9vh;
     position: fixed;
     bottom: 0;
     width: 100%;
     background: #000000d2;
-    color:#fff;
-    padding:0 1vh;
-    font-size:1.75vh;
+    color: #fff;
+    padding: 0 1vh;
+    font-size: 1.75vh;
     justify-content: space-around;
     align-items: center;
     z-index: 3;
 
     p {
-        margin:1vh auto;
-        width:max-content;
+        margin: 1vh auto;
+        width: max-content;
     }
 }
 
@@ -88,26 +88,45 @@ h1 {
 }
 
 .productos {
-    padding-bottom:9vh;
-    background:#000;
+    padding-bottom: 9vh;
+    background: #000;
 }
 
 .info {
     text-align: center;
     padding: 0 10px 20px 10px;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     text-decoration: underline;
     font-size: 2.3vh;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 .info.pie {
-    max-width:80%;margin:auto;
+    max-width: 80%;
+    margin: auto;
 }
 
 .info.pizzas {
     justify-content: center;
+
+    span {
+        border: 3px solid #fff;
+        padding: 5px;
+        color: #fff;
+        border-radius: 10px;
+    }
+}
+
+.info.hamburguesas {
+    justify-content: space-between;
+
+    span {
+        border: 3px solid #fff;
+        padding: 5px;
+        color: #fff;
+        border-radius: 10px;
+    }
 }
 
 .seccion {
@@ -117,7 +136,7 @@ h1 {
     ul {
         margin: 0;
         padding: 20px 20px;
-        background:#7a2020;
+        background: #7a2020;
     }
 
 }
@@ -159,7 +178,7 @@ li .muestra {
 .titulo_principal {
 
     background: #494242;
-    border-bottom:2px solid gray;
+    border-bottom: 2px solid gray;
     cursor: pointer;
     display: flex;
     justify-content: left;
@@ -243,34 +262,41 @@ li p {
     border-radius: 8px;
     padding: 6px 12px;
     margin-top: 8px;
-    margin-right:auto;
-    display:inline-block;
+    margin-right: auto;
+    display: inline-block;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
     transition: transform 0.2s ease;
 }
 
 .ensaladas {
-    border-top:6px solid gray;
+    border-top: 6px solid gray;
 }
 
 .vinos {
     .titulo_principal {
-        border-bottom:5px solid gray;
+        border-bottom: 5px solid gray;
     }
 
     .muestra {
         aspect-ratio: 9/16;
-        max-width:20vh;
-        max-height:90%;
-        border-color:transparent;
+        max-width: 20vh;
+        max-height: 90%;
+        border-color: transparent;
     }
 
     .titulo-region {
-        background:#0000009f;
-        color:#fff;
-        border-radius: 50px;;
-        width:max-content;
-        padding:0.3em 1em;
-        font-size:3.2vh;
+        display: flex;
+        align-items: center;
+        h2 {
+            background: #0000009f;
+            color: #fff;
+            border-radius: 50px;
+            width: max-content;
+            padding: 0.3em 1em;
+            font-size: 3.2vh;
+        }
+        .mapa {
+            max-width:10vh;
+        }
     }
 }
