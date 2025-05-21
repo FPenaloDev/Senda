@@ -304,4 +304,8 @@ li p {
             max-width:20vh;
         }
     }
+
+    .descripcion-plato {
+        max-width:92.5%;
+    }
 }
