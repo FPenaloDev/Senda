@@ -308,9 +308,7 @@ li p {
     .vino {
         display: flex;
         align-items: center;
-        background: #fff;
         border-radius: 20px;
-        border: 2px solid #332f2f;
         margin: 10px auto;
 
         .descripcion-plato {
@@ -319,6 +317,12 @@ li p {
             font-size:1.6vh;
 
         }
+    }
+
+    .precio-articulo {
+        margin:0 auto;
+        display: block;
+        max-width:max-content;
     }
 
 }
