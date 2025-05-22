@@ -305,7 +305,20 @@ li p {
         }
     }
 
-    .descripcion-plato {
-        max-width:92.5%;
+    .vino {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        border-radius: 20px;
+        border: 2px solid #332f2f;
+        margin: 10px auto;
+
+        .descripcion-plato {
+            margin:0 auto;
+            padding:0 5%;
+            font-size:1.6vh;
+
+        }
     }
+
 }
