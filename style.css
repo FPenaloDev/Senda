@@ -191,7 +191,7 @@ li .muestra {
         color: white;
         background: none;
         margin: 0;
-        font-size: 1.5em;
+        font-size: 55px;
         text-align: left;
     }
 
@@ -205,10 +205,12 @@ li .muestra {
 .titulo {
     display: flex;
     flex-direction: column;
+    max-width:85%;
+    margin:0 auto;
 
     h2 {
         text-align: center;
-        font-size: 1.4em;
+        font-size: 40px;
     }
 }
 
