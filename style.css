@@ -233,7 +233,7 @@ li .muestra {
 }
 
 .texto-alergenos {
-    max-width: 80%;
+    max-width: 60%;
     text-align: center;
     margin: 15px auto;
     background: #d88303;
@@ -288,7 +288,7 @@ li p {
             color: #fff;
             width: max-content;
             text-align:center;
-            font-size: 30px;
+            font-size: 55px;
         }
 
         span {
@@ -309,7 +309,7 @@ li p {
         .descripcion-plato {
             margin:0 auto;
             padding:0 5%;
-            font-size:30px;
+            font-size:40px;
 
         }
     }
