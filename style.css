@@ -256,7 +256,7 @@ li p {
 .precio-articulo {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 1.5em;
+    font-size: 50px;
     color: #e0e0e0;
     background: linear-gradient(135deg, #0d0d0d, #010101);
     border: 1px solid #e0e0e0;
@@ -315,7 +315,7 @@ li p {
         .descripcion-plato {
             margin:0 auto;
             padding:0 5%;
-            font-size:24px;
+            font-size:30px;
 
         }
     }
