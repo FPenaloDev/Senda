@@ -54,7 +54,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     z-index: 3;
-    border-radius:20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
 
     p {
         margin: 1vh auto;
@@ -119,21 +119,21 @@ h1 {
 
 .info.hamburguesas {
     justify-content: space-between;
-    max-width:85%;
-    margin:0 auto;
+    max-width: 85%;
+    margin: 0 auto;
 
     span {
         padding: 5px;
         color: #fff;
         border-radius: 10px;
-        font-size:30px;
+        font-size: 30px;
     }
 }
 
 .seccion {
     background: #fff !important;
     border: 5px solid #000;
-    border-top:6px solid #332f2f;
+    border-top: 6px solid #332f2f;
 
     ul {
         margin: 0;
@@ -208,8 +208,8 @@ li .muestra {
 .titulo {
     display: flex;
     flex-direction: column;
-    max-width:85%;
-    margin:0 auto;
+    max-width: 85%;
+    margin: 0 auto;
 
     h2 {
         text-align: center;
@@ -240,28 +240,41 @@ li .muestra {
     padding: 10px;
     border-radius: 10px;
     color: #fff;
-    font-size: 1.15em;
+    font-size: 30px;
 }
 
 li p {
     margin-top: 0;
 }
 
+.precios {
+    max-width:90%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
 .precio-articulo {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    font-size: 50px;
-    color: #e0e0e0;
-    background: linear-gradient(135deg, #0d0d0d, #010101);
+    font-size: 45px;
+    color: #fff;
+    background:#222e60;
     border: 1px solid #e0e0e0;
     border-radius: 30px;
     padding: 12px 22px;
-    margin: 0 auto;
     margin-top: 8px;
     display: flex;
-    max-width:max-content;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80%;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s ease;
+}
+
+.precio-sala,.precio-terraza {
+    width:max-content;
+    display: flex;
+    align-items: center;
+    margin-right:0.3em;
 }
 
 .ensaladas {
@@ -275,7 +288,7 @@ li p {
 
     .muestra {
         aspect-ratio: 9/16;
-        max-width: 20vh;
+        max-width: 30%;
         max-height: 90%;
         border-color: transparent;
     }
@@ -284,10 +297,11 @@ li p {
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+
         h2 {
             color: #fff;
             width: max-content;
-            text-align:center;
+            text-align: center;
             font-size: 55px;
         }
 
@@ -295,8 +309,9 @@ li p {
             color: #fff;
             font-size: 0.7em;
         }
+
         .mapa {
-            max-width:20vh;
+            max-width: 20vh;
         }
     }
 
@@ -307,18 +322,56 @@ li p {
         margin: 10px auto;
 
         .descripcion-plato {
-            margin:0 auto;
-            padding:0 5%;
-            font-size:40px;
+            margin: 0 auto;
+            padding: 0 5% 0 2.5%;
+            font-size: 40px;
+            max-width:65% !important;
 
         }
     }
 
-    .precio-articulo {
-        margin:0 auto;
-        display: block;
-        max-width:max-content;
-        padding:0.5em 1em;
+}
+
+/* @media (min-width: 600px) {
+    .titulo_principal {
+        h1 {
+            font-size: 36px;
+        }
     }
 
-}
+    .titulo {
+        h2 {
+            text-align: center;
+            font-size: 40px;
+        }
+    }
+
+    .descripcion-plato {
+        font-size: 26px;
+    }
+
+    .vinos {
+        .titulo h2 {
+            font-size: 24px;
+        }
+    }
+
+    .vino {
+
+
+        .descripcion-plato {
+            font-size: 20px !important;
+        }
+    }
+
+    .precio-articulo {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .footer {
+        p,span {
+            font-size: 20px !important;
+        }
+    }
+} */
