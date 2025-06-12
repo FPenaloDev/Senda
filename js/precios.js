@@ -1,6 +1,6 @@
 // precios.js
 export const precios = {
-    '.vinos .vinos1':{sala:'21,00 €', terraza:'22,00 €'},
+  '.vinos .vinos1':{sala:'21,00 €', terraza:'22,00 €'},
   '.vinos .vinos2':{sala:'21,00 €', terraza:'22,00 €'},
   '.vinos .vinos3':{sala:'18,00 €', terraza:'19,00 €'},
   '.vinos .vinos4':{sala:'15,00 €', terraza:'16,00 €'},
