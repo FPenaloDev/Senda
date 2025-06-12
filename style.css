@@ -73,11 +73,8 @@ nav .bandera {
     cursor: pointer;
     border-radius: 50px;
     border: 1.5px solid #fff;
+    object-fit: cover center center;
 
-}
-
-.banderas img {
-    width: 2.5vh;
 }
 
 h1 {
