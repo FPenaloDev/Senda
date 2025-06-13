@@ -147,16 +147,16 @@ export const vinos = [
         selectorTitle: '.vinos .vinos11 h2',
         selectorDescription: '.vinos .vinos11 .descripcion-plato',
         es: {
-            title: "GILDA",
-            description: "Gilda es un vino blanco joven, ligero y muy refrescante. Desprende aromas cítricos y de frutas de hueso como melocotón y albaricoque, acompañados de notas florales y herbáceas. En boca es suave, con buena acidez, cuerpo ligero y un final limpio, ideal para momentos informales o como aperitivo.",
+            title: "ÁRABE",
+            description: "Árabe es un vino blanco elegante, presentado en una distintiva botella azul. De sabor suave y afrutado, destaca por su frescura y aromas exóticos que evocan tierras lejanas.",
         },
         en: {
-            title: "GILDA",
-            description: "Gilda is a young, light, and very refreshing white wine. It offers citrus aromas and stone fruits like peach and apricot, along with floral and herbal hints. On the palate, it's smooth, with good acidity, a light body, and a clean finish — perfect for casual occasions or as an aperitif.",
+            title: "ÁRABE",
+            description: "Árabe is an elegant white wine, presented in a distinctive blue bottle. It offers a smooth, fruity flavor with a fresh profile and exotic aromas that evoke distant lands.",
         },
         fr: {
-            title: "GILDA",
-            description: "Gilda est un vin blanc jeune, léger et très rafraîchissant. Il dégage des arômes d’agrumes et de fruits à noyau comme la pêche et l’abricot, accompagnés de notes florales et herbacées. En bouche, il est doux, avec une bonne acidité, un corps léger et une finale nette — idéal pour les moments décontractés ou en apéritif.",
+            title: "ÁRABE",
+            description: "Árabe est un vin blanc élégant, présenté dans une bouteille bleue distinctive. Il séduit par sa douceur fruitée, sa fraîcheur et ses arômes exotiques rappelant des contrées lointaines.",
         }
     },
     {
