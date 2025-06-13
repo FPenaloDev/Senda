@@ -73,7 +73,7 @@ nav .bandera {
     cursor: pointer;
     border-radius: 50px;
     border: 1.5px solid #fff;
-    object-fit: cover center center;
+    object-fit: cover;
 
 }
 
@@ -111,6 +111,7 @@ h1 {
         padding: 5px;
         color: #fff;
         border-radius: 10px;
+        font-size:35px;
     }
 }
 
@@ -123,7 +124,7 @@ h1 {
         padding: 5px;
         color: #fff;
         border-radius: 10px;
-        font-size: 30px;
+        font-size: 35px;
     }
 }
 

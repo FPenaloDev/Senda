@@ -163,6 +163,22 @@ export const vinos = [
         selectorTitle: '.vinos .vinos12 h2',
         selectorDescription: '.vinos .vinos12 .descripcion-plato',
         es: {
+            title: "CAMPUSTAURU",
+            description: "Campustauru Verdejo es un vino blanco vibrante elaborado con uvas Verdejo, típico de la región de Rueda. Destaca por su frescura, notas cítricas y herbales, y un final limpio y persistente.",
+        },
+        en: {
+            title: "CAMPUSTAURU",
+            description: "Campustauru Verdejo is a vibrant white wine made from Verdejo grapes, typical of the Rueda region. It stands out for its freshness, citrus and herbal notes, and a clean, lingering finish.",
+        },
+        fr: {
+            title: "CAMPUSTAURU",
+            description: "Campustauru Verdejo est un vin blanc vif élaboré à partir de raisins Verdejo, typiques de la région de Rueda. Il se distingue par sa fraîcheur, ses notes d’agrumes et d’herbes, et sa finale nette et persistante.",
+        }
+    },
+    {
+        selectorTitle: '.vinos .vinos13 h2',
+        selectorDescription: '.vinos .vinos13 .descripcion-plato',
+        es: {
             title: "YLLERA 5.5",
             description: "Yllera 5.5 es un vino blanco frizzante, joven, dulce y ligeramente espumoso. Ofrece intensos aromas a frutas tropicales como piña y maracuyá, con notas de manzana verde y cítricos. En boca es goloso y fresco, con una burbuja suave, baja graduación alcohólica y un final vibrante que lo hace ideal como aperitivo o para acompañar postres.",
         },
@@ -176,8 +192,8 @@ export const vinos = [
         }
     },
     {
-        selectorTitle: '.vinos .vinos13 h2',
-        selectorDescription: '.vinos .vinos13 .descripcion-plato',
+        selectorTitle: '.vinos .vinos14 h2',
+        selectorDescription: '.vinos .vinos14 .descripcion-plato',
         es: {
             title: "LAMBRUSCO",
             description: "Lambrusco es un vino espumoso joven, fresco y afrutado. Presenta aromas vibrantes a frutos rojos como fresa, cereza y frambuesa, junto con un ligero toque floral y notas de hierbas. En boca es ligero, con una burbuja fina y refrescante, un equilibrio entre dulzura y acidez, y un final suave y agradable.",
