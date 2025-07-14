@@ -20,8 +20,23 @@
                 alt="Francés">
         </nav>
         <div class="portada">
-            <img src="recursos/pollos.png" alt="">
+            <div class="carrusel">
+                <img src="recursos/pollos.png" class="activo" alt="">
+                <img src="recursos/mojitos_helados.png" alt="">
+                <img src="recursos/portada_h.png" alt="">
+            </div>
         </div>
+        <script>
+            const imagenes = document.querySelectorAll(".carrusel img");
+            let index = 0;
+
+            setInterval(() => {
+                imagenes[index].classList.remove("activo");
+                index = (index + 1) % imagenes.length;
+                imagenes[index].classList.add("activo");
+            }, 7500); // 5 segundos
+        </script>
+
         <div class="productos">
             <div class="vinos seccion">
                 <div class="titulo_principal">
@@ -205,7 +220,7 @@
                             </p>
                         </div>
                     </li>
-                     <li class="vinos11">
+                    <li class="vinos11">
                         <div class="titulo">
                             <h2>ÁRABE</h2>
                         </div>
@@ -213,11 +228,12 @@
 
                             <img class="muestra" src="recursos/vinos/arabe.png" alt="">
                             <p class="descripcion-plato">
-                                Árabe es un vino blanco elegante, presentado en una distintiva botella azul. De sabor suave y afrutado, destaca por su frescura y aromas exóticos que evocan tierras lejanas.
+                                Árabe es un vino blanco elegante, presentado en una distintiva botella azul. De sabor
+                                suave y afrutado, destaca por su frescura y aromas exóticos que evocan tierras lejanas.
                             </p>
                         </div>
                     </li>
-                     <li class="vinos12">
+                    <li class="vinos12">
                         <div class="titulo">
                             <h2>CAMPUSTAURU</h2>
                         </div>
@@ -225,7 +241,9 @@
 
                             <img class="muestra" src="recursos/vinos/capustauru.png" alt="">
                             <p class="descripcion-plato">
-                                Campustauru Verdejo es un vino blanco vibrante elaborado con uvas Verdejo, típico de la región de Rueda. Destaca por su frescura, notas cítricas y herbales, y un final limpio y persistente.
+                                Campustauru Verdejo es un vino blanco vibrante elaborado con uvas Verdejo, típico de la
+                                región de Rueda. Destaca por su frescura, notas cítricas y herbales, y un final limpio y
+                                persistente.
                             </p>
                         </div>
                     </li>
@@ -1224,7 +1242,7 @@
                         <p class="texto-alergenos"><strong>CONTIENE <br></strong><i>&nbsp;Gluten</i>
                         </p>
                     </li>
-<!--                     <li class="tostas7">
+                    <!--                     <li class="tostas7">
                         <div class="titulo">
                             <h2>Tosta de boquerones, anchoas y queso</h2>
                         </div>
@@ -1242,7 +1260,6 @@
                     </li> -->
                 </ul>
             </div>
-
             <div class="hamburguesas seccion">
                 <div class="titulo_principal">
                     <img src="recursos/emojis-secciones/Hamburguesas.png" alt="">
@@ -1815,7 +1832,7 @@
             });
         });
 
-        
+
 
         // insertarPrecios.js
 
