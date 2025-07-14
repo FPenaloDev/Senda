@@ -18,7 +18,7 @@ body {
     height: max-content;
     position: relative;
     overflow: hidden;
-    padding-top: 10vh;
+    padding-top: 9.25vh;
     background: #000;
 }
 
@@ -34,7 +34,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     opacity: 0;
     transition: opacity 1s ease-in-out;
     z-index: 0;
@@ -52,11 +52,12 @@ nav {
     justify-content: space-around;
     align-items: center;
     background: #000000d2;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 150px 150px;
     z-index: 3;
     width: 100%;
     height: 8.5vh;
     padding: 5px 0;
+
 }
 
 .footer {
@@ -71,7 +72,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     z-index: 3;
-    border-radius: 20px 20px 0 0;
+    border-radius: 150px 150px 0 0;
 
     p {
         margin: 1vh auto;
