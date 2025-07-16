@@ -1839,6 +1839,9 @@
                             seccion.style.display = 'none';
                         });
                         titulo.querySelector('h1').style.display = 'block';
+                        titulo.querySelector('h1').style.position = 'static';
+                        titulo.querySelector('h1').style.marginTop = '0';
+                        titulo.querySelector('h1').style.fontSize = '60px';
                         titulo.querySelector('svg').style.display = 'block';
                         titulo.style.width = "100%";
                         titulo.style.background = "#b75a03";
@@ -1862,7 +1865,10 @@
                         document.querySelectorAll('.seccion').forEach(seccion => {
                             seccion.style.display = 'flex';
                         });
-                        titulo.querySelector('h1').style.display = 'none';
+                        titulo.querySelector('h1').style.display = 'flex';
+                        titulo.querySelector('h1').style.position = 'absolute';
+                        titulo.querySelector('h1').style.marginTop = '10em';
+                        titulo.querySelector('h1').style.fontSize = '28px';
                         titulo.querySelector('svg').style.display = 'none';
                         titulo.style.width = "max-content";
                         titulo.style.background = "#FFF";
@@ -1878,6 +1884,7 @@
                         titulo.nextElementSibling.style.marginTop = '0vh';
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         document.querySelector('.productos').style.border = '15px solid #ffffffb0';
+                        document.querySelector('.productos').style.paddingTop = '0';
                         titulo.style.position = 'static';
                         contenido.style.display = 'none';
                     }

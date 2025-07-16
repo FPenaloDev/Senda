@@ -18,7 +18,7 @@ body {
     margin:0 auto;
     width: 100%;
     background: #ffffffb0;
-    height: max-content;
+    height: 30%;
     position: relative;
     overflow: hidden;
 }
@@ -107,11 +107,13 @@ h1 {
 
 .productos {
     border:15px solid #ffffffb0;
-    padding-bottom: 10vh;
+    border-bottom:none;
+    padding-top: 1.25vh;
+    padding-bottom: 6vh;
     background: #b75a03;
     display: flex;
     flex-wrap: wrap;
-    height: 47.5vh;
+    height: 45vh;
 }
 
 .info {
@@ -154,7 +156,8 @@ h1 {
 
 .seccion {
     width:22%;
-    margin: auto;
+    margin: 0 
+    auto;
 
     ul {
         margin: 0;
@@ -217,9 +220,10 @@ li .muestra {
         color: white;
         background: none;
         margin: 0;
-        font-size: 60px;
+        font-size: 28px;
         text-align: left;
-        display: none;
+        position: absolute;
+        margin-top:10em;
     }
 
     img {
