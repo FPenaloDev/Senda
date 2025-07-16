@@ -1847,6 +1847,7 @@
                         titulo.style.background = "#b75a03";
                         titulo.style.border = "none";
                         titulo.style.justifyContent = "left";
+                        titulo.style.margin = "0 auto";
                         titulo.querySelector('img').style.marginLeft = '7.5vh';
                         titulo.style.borderRadius = "0%";
                         titulo.parentElement.style.display = 'flex';
@@ -1856,9 +1857,8 @@
                         titulo.nextElementSibling.style.marginTop = '8vh';
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         document.querySelector('.productos').style.border = 'none';
+                        document.querySelector('.productos').style.paddingTop = '0';
                         titulo.style.position = 'fixed';
-                        document.querySelector('nav').style.width = '100%';
-                        document.querySelector('nav').style.left = '0';
                         contenido.style.display = 'block';
                     } else {
                         document.querySelector('.portada').style.display = 'block';
@@ -1875,6 +1875,7 @@
                         titulo.style.border = "3px solid #000";
                         titulo.style.borderBottom = "15px solid #000";
                         titulo.style.justifyContent = "center";
+                        titulo.style.margin = "1em auto";
                         titulo.querySelector('img').style.marginLeft = '0vh';
                         titulo.style.borderRadius = "50%";
                         titulo.parentElement.style.display = 'flex';
@@ -1884,7 +1885,7 @@
                         titulo.nextElementSibling.style.marginTop = '0vh';
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         document.querySelector('.productos').style.border = '15px solid #ffffffb0';
-                        document.querySelector('.productos').style.paddingTop = '0';
+                        document.querySelector('.productos').style.paddingTop = '1.25vh';
                         titulo.style.position = 'static';
                         contenido.style.display = 'none';
                     }
