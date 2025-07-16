@@ -41,10 +41,6 @@
                 <div class="titulo_principal">
                     <img src="recursos/emojis-secciones/Vinos.png" alt="">
                     <h1>VINOS</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" style="width:3.5em;height:3.5em;" viewBox="0 0 1216 1312">
-                        <path fill="#ffffff"
-                            d="M1202 1066q0 40-28 68l-136 136q-28 28-68 28t-68-28L608 976l-294 294q-28 28-68 28t-68-28L42 1134q-28-28-28-68t28-68l294-294L42 410q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294l294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68L880 704l294 294q28 28 28 68" />
-                    </svg>
                 </div>
                 <ul>
                     <div class="titulo-region">
@@ -294,10 +290,6 @@
                 <div class="titulo_principal">
                     <img src="recursos/emojis-secciones/Ensalada.png" alt="">
                     <h1>ENSALADAS</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" style="width:3.5em;height:3.5em;" viewBox="0 0 1216 1312">
-                        <path fill="#ffffff"
-                            d="M1202 1066q0 40-28 68l-136 136q-28 28-68 28t-68-28L608 976l-294 294q-28 28-68 28t-68-28L42 1134q-28-28-28-68t28-68l294-294L42 410q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294l294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68L880 704l294 294q28 28 28 68" />
-                    </svg>
                 </div>
                 <ul>
                     <li class="ensalada1">
@@ -362,10 +354,7 @@
                 <div class="titulo_principal">
                     <img src="recursos/emojis-secciones/Arroces.png" alt="">
                     <h1>ARROCES</h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" style="width:3.5em;height:3.5em;" viewBox="0 0 1216 1312">
-                        <path fill="#ffffff"
-                            d="M1202 1066q0 40-28 68l-136 136q-28 28-68 28t-68-28L608 976l-294 294q-28 28-68 28t-68-28L42 1134q-28-28-28-68t28-68l294-294L42 410q-28-28-28-68t28-68l136-136q28-28 68-28t68 28l294 294l294-294q28-28 68-28t68 28l136 136q28 28 28 68t-28 68L880 704l294 294q28 28 28 68" />
-                    </svg>
+
                 </div>
                 <ul>
                     <li class="arroces1">
@@ -1868,7 +1857,9 @@
                 if (contenido) {
                     contenido.style.display = 'none';
                 }
-
+                titulo.innerHTML += `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#b75a03" fill-rule="evenodd" stroke="#b75a03" stroke-linejoin="round" stroke-width="4" d="M44 40.836q-7.34-8.96-13.036-10.168t-10.846-.365V41L4 23.545L20.118 7v10.167q9.523.075 16.192 6.833q6.668 6.758 7.69 16.836Z" clip-rule="evenodd"/></svg>
+                `;
                 titulo.addEventListener('click', () => {
                     if (contenido.style.display === 'none') {
                         document.querySelector('.portada').style.display = 'none';
@@ -1881,7 +1872,7 @@
                         titulo.style.background = "#b75a03";
                         titulo.style.border = "none";
                         titulo.style.justifyContent = "left";
-                        titulo.querySelector('img').style.marginLeft = '2vh';
+                        titulo.querySelector('img').style.marginLeft = '7.5vh';
                         titulo.style.borderRadius = "0%";
                         titulo.parentElement.style.display = 'flex';
                         titulo.parentElement.style.flexDirection = 'column';
@@ -1902,9 +1893,9 @@
                         titulo.querySelector('h1').style.display = 'none';
                         titulo.querySelector('svg').style.display = 'none';
                         titulo.style.width = "max-content";
-                        titulo.style.background = "#b75a03";
-                        titulo.style.border = "3px solid #fff";
-                        titulo.style.borderBottom = "15px solid #fff";
+                        titulo.style.background = "#FFF";
+                        titulo.style.border = "3px solid #000";
+                        titulo.style.borderBottom = "15px solid #000";
                         titulo.style.justifyContent = "center";
                         titulo.querySelector('img').style.marginLeft = '0vh';
                         titulo.style.borderRadius = "50%";
@@ -1916,8 +1907,6 @@
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         document.querySelector('.productos').style.border = '15px solid #ffffffb0';
                         titulo.style.position = 'static';
-                        document.querySelector('nav').style.width = 'calc(100% - 30px)';
-                        document.querySelector('nav').style.left = '15px';
                         contenido.style.display = 'none';
                     }
                 });

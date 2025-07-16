@@ -25,7 +25,7 @@ body {
 
 .carrusel {
     position: relative;
-    width: calc(100% - 30px);
+    width: 100%;
     margin: auto;
     height: 30vh;
 }
@@ -55,8 +55,7 @@ nav {
     align-items: center;
     background: #000000;
     z-index: 3;
-    width: calc(100% - 30px);
-    left:15px;
+    width: 100%;
     height: 8.5vh;
     padding: 5px 0;
 
@@ -108,11 +107,11 @@ h1 {
 
 .productos {
     border:15px solid #ffffffb0;
-    padding-bottom: 17.5vh;
-    background: #222e60;
+    padding-bottom: 7vh;
+    background: #b75a03;
     display: flex;
     flex-wrap: wrap;
-    height: 42.5vh;
+    height: 52.5vh;
 }
 
 .info {
@@ -201,9 +200,9 @@ li .muestra {
 
 .titulo_principal {
 
-    background: #b75a03;
-    border: 3px solid #fff;
-    border-bottom: 15px solid #fff;
+    background: #FFF;
+    border: 3px solid #000;
+    border-bottom: 15px solid #000;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -231,7 +230,13 @@ li .muestra {
     svg {
         display: none;
         position: absolute;
-        left:90%;
+        left:1.5vh;
+        width: 3.5em;
+        height: 3.5em;
+        border:5px solid #fff;
+        background: #fff;
+        border-radius: 50%;
+        padding:1em;
     }
 }
 
