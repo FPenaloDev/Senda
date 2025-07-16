@@ -51,7 +51,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: #171f40;
+    background: #000000;
     z-index: 3;
     width: calc(100% - 30px);
     left:15px;
@@ -107,7 +107,7 @@ h1 {
 .productos {
     border:15px solid #000000e6;
     padding-bottom: 17.5vh;
-    background: #b75a03;
+    background: #c3742b;
     display: flex;
     flex-wrap: wrap;
     height: 42.5vh;

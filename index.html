@@ -1891,6 +1891,8 @@
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         document.querySelector('.productos').style.border = 'none';
                         titulo.style.position = 'fixed';
+                        document.querySelector('nav').style.width = '100%';
+                        document.querySelector('nav').style.left = '0';
                         contenido.style.display = 'block';
                     } else {
                         document.querySelector('.portada').style.display = 'block';
@@ -1914,6 +1916,8 @@
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         document.querySelector('.productos').style.border = '15px solid #000000e6';
                         titulo.style.position = 'static';
+                        document.querySelector('nav').style.width = 'calc(100% - 30px)';
+                        document.querySelector('nav').style.left = '15px';
                         contenido.style.display = 'none';
                     }
                 });
