@@ -107,11 +107,11 @@ h1 {
 
 .productos {
     border:15px solid #ffffffb0;
-    padding-bottom: 7vh;
+    padding-bottom: 10vh;
     background: #b75a03;
     display: flex;
     flex-wrap: wrap;
-    height: 52.5vh;
+    height: 47.5vh;
 }
 
 .info {
