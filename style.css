@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     font-family: 'Cal Sans', sans-serif;
-    background: #88490e;
+    background: #000000;
 }
 
 .app {
@@ -15,11 +15,11 @@ body {
 
 .portada {
     padding-top:9vh;
-    width: 100%;
+    width: calc(100% - 30px);
+    margin:0 auto;
     height: max-content;
     position: relative;
     overflow: hidden;
-    background: #fff;
 }
 
 .carrusel {
@@ -51,9 +51,10 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: #000000e6;
+    background: #171f40;
     z-index: 3;
-    width: 100%;
+    width: calc(100% - 30px);
+    left:15px;
     height: 8.5vh;
     padding: 5px 0;
 
@@ -89,8 +90,8 @@ nav .bandera {
     height: 5vh;
     margin: 1vh;
     cursor: pointer;
-    border-radius: 50px;
-    border: 1.5px solid #fff;
+    border-radius: 50%;
+    border: 5px solid #000;
     object-fit: cover;
 
 }
@@ -104,13 +105,12 @@ h1 {
 }
 
 .productos {
-    border:15px solid #88490e;
-    border-radius: 150px 150px 0 0;
-    padding-bottom: 9vh;
-    background: #222e60;
+    border:15px solid #000000e6;
+    padding-bottom: 17.5vh;
+    background: #b75a03;
     display: flex;
     flex-wrap: wrap;
-    height: 45vh;
+    height: 42.5vh;
 }
 
 .info {
@@ -199,8 +199,9 @@ li .muestra {
 
 .titulo_principal {
 
-    background: #b75a03;
-    border-bottom: 2px solid #332f2f;
+    background: #000000d7;
+    border: 3px solid #fff;
+    border-bottom: 15px solid #fff;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -305,9 +306,6 @@ li p {
 }
 
 .vinos {
-    .titulo_principal {
-        border-bottom: 5px solid #332f2f;
-    }
 
     .muestra {
         aspect-ratio: 9/16;
