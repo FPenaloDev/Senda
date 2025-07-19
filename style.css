@@ -11,6 +11,34 @@ body {
 .app {
     display: flex;
     flex-direction: column;
+    height: 100vh;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #000000;
+    z-index: 3;
+    width: 100%;
+    height: 9vh;
+    padding: 5px 0;
+
+}
+nav .logo {
+    max-height: 7.5vh;
+}
+
+nav .bandera {
+    width: 5vh;
+    height: 5vh;
+    margin: 1vh;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 5px solid #000;
+    object-fit: cover;
+
 }
 
 .portada {
@@ -48,19 +76,6 @@ body {
 }
 
 
-nav {
-    position: fixed;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: #000000;
-    z-index: 3;
-    width: 100%;
-    height: 9vh;
-    padding: 5px 0;
-
-}
-
 .footer {
     height: 9vh;
     position: fixed;
@@ -82,21 +97,6 @@ nav {
     }
 }
 
-nav .logo {
-    max-height: 7.5vh;
-}
-
-nav .bandera {
-    width: 5vh;
-    height: 5vh;
-    margin: 1vh;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 5px solid #000;
-    object-fit: cover;
-
-}
-
 h1 {
     text-align: center;
     background: #fff;
@@ -110,7 +110,7 @@ h1 {
     background: #b75a03;
     display: flex;
     flex-wrap: wrap;
-    height: 40vh;
+    height: 52vh;
 }
 
 .info {
