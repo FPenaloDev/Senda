@@ -110,7 +110,7 @@ h1 {
     background: #b75a03;
     display: flex;
     flex-wrap: wrap;
-    height: 52vh;
+    height: calc(52vh - 4.5vh);
 }
 
 .info {
