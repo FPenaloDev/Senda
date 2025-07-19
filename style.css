@@ -106,6 +106,8 @@ h1 {
 }
 
 .productos {
+    position: absolute;
+    top:39vh;
     border-bottom:none;
     background: #b75a03;
     display: flex;
