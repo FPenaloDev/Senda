@@ -35,7 +35,7 @@
                 imagenes[index].classList.remove("activo");
                 index = (index + 1) % imagenes.length;
                 imagenes[index].classList.add("activo");
-            }, 6000); // 5 segundos
+            }, 4000); // 5 segundos
         </script>
         <div class="productos">
             <div class="vinos seccion">
@@ -1838,6 +1838,7 @@
                         document.querySelectorAll('.seccion').forEach(seccion => {
                             seccion.style.display = 'none';
                         });
+                        titulo.style.height = "8vh";
                         titulo.querySelector('h1').style.display = 'block';
                         titulo.querySelector('h1').style.position = 'static';
                         titulo.querySelector('h1').style.marginTop = '0';
@@ -1858,15 +1859,17 @@
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         titulo.style.position = 'fixed';
                         document.querySelector('.productos').style.top = 0;
+                        document.querySelector('nav').style.borderRadius = '0';
                         contenido.style.display = 'block';
                     } else {
                         document.querySelector('.portada').style.display = 'block';
                         document.querySelectorAll('.seccion').forEach(seccion => {
                             seccion.style.display = 'flex';
                         });
+                        titulo.style.height = "5vh";
                         titulo.querySelector('h1').style.display = 'flex';
                         titulo.querySelector('h1').style.position = 'absolute';
-                        titulo.querySelector('h1').style.marginTop = '10em';
+                        titulo.querySelector('h1').style.marginTop = '7em';
                         titulo.querySelector('h1').style.fontSize = '28px';
                         titulo.querySelector('svg').style.display = 'none';
                         titulo.style.width = "max-content";
@@ -1884,7 +1887,8 @@
                         titulo.nextElementSibling.style.marginTop = '0vh';
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         titulo.style.position = 'static';
-                        document.querySelector('.productos').style.top = '39vh';
+                        document.querySelector('.productos').style.top = '42.5vh';
+                        document.querySelector('nav').style.borderRadius = '0 0 150px 150px';
                         contenido.style.display = 'none';
                     }
                 });
