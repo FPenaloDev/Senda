@@ -9,7 +9,32 @@
 </head>
 
 <body>
-    <div class="app">
+    <div id="orientation-warning">
+        <!-- Icono SVG animado -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100" height="100" fill="none">
+            <!-- Dispositivo (rectángulo vertical) -->
+            <rect x="60" y="20" width="40" height="80" rx="6" ry="6" stroke="white" stroke-width="4" fill="none" />
+
+            <!-- Flecha curva superior izquierda -->
+            <path d="M50 40 C40 40, 30 60, 40 70" stroke="white" stroke-width="2" fill="none"
+                marker-end="url(#arrowhead)" />
+
+            <!-- Flecha curva inferior izquierda -->
+            <path d="M50 80 C40 80, 30 60, 40 50" stroke="white" stroke-width="2" fill="none"
+                marker-end="url(#arrowhead)" />
+
+            <!-- Definición de punta de flecha -->
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="white" />
+                </marker>
+            </defs>
+        </svg>
+
+        <h2>Por favor gira tu dispositivo</h2>
+        <p>Este sitio solo funciona en modo vertical.</p>
+    </div>
+    <div id="main-content" class="app">
         <nav>
             <!-- <img src="recursos/logo_senda.png" alt="" class="logo"> -->
             <img class="bandera" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="Español">
@@ -2411,6 +2436,77 @@
         });
 
     </script>
+    <script>
+        function checkOrientation() {
+            const isLandscape = window.innerWidth > window.innerHeight;
+            const warning = document.getElementById('orientation-warning');
+            const content = document.getElementById('main-content');
+
+            if (isLandscape) {
+                warning.style.display = 'flex';
+                content.style.display = 'none';
+            } else {
+                warning.style.display = 'none';
+                content.style.display = 'block';
+            }
+        }
+
+        window.addEventListener('load', checkOrientation);
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('orientationchange', checkOrientation);
+    </script>
+    <style>
+        #orientation-warning {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #111;
+            color: white;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            padding: 5rem 2rem 2rem 2rem;
+        }
+
+        #orientation-warning svg {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 1rem;
+            animation: rotate 2s infinite ease-in-out;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(10deg);
+            }
+
+            50% {
+                transform: rotate(-10deg);
+            }
+
+            75% {
+                transform: rotate(10deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        #main-content {
+            display: block;
+        }
+    </style>
 </body>
 
 </html>
