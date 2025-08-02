@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background:#b75a03;
+    background: #b75a03;
 }
 
 nav {
@@ -25,9 +25,10 @@ nav {
     width: 100%;
     height: 9vh;
     padding: 5px 0;
-    border-radius: 0 0 150px 150px ;
+    border-radius: 0 0 150px 150px;
 
 }
+
 nav .logo {
     max-height: 7.5vh;
 }
@@ -44,8 +45,8 @@ nav .bandera {
 }
 
 .portada {
-    padding-top:11vh;
-    margin:0 auto;
+    padding-top: 11vh;
+    margin: 0 auto;
     width: 100%;
     background: #b75a03;
     height: 30vh;
@@ -70,7 +71,7 @@ nav .bandera {
     transition: opacity 1s ease-in-out;
     z-index: 0;
     border-radius: 50px;
-    border:5px solid #000;
+    border: 5px solid #000;
     box-shadow: 7.5px 7.5px 30px #000;
 }
 
@@ -84,7 +85,7 @@ nav .bandera {
     height: 9vh;
     position: fixed;
     bottom: 0;
-    left:15px;
+    left: 15px;
     width: calc(96% - 30px);
     background: #000000d2;
     color: #fff;
@@ -111,8 +112,8 @@ h1 {
 
 .productos {
     position: absolute;
-    top:42.5vh;
-    border-bottom:none;
+    top: 42.5vh;
+    border-bottom: none;
     background: #b75a03;
     display: flex;
     flex-wrap: wrap;
@@ -140,7 +141,7 @@ h1 {
         padding: 5px;
         color: #fff;
         border-radius: 10px;
-        font-size:35px;
+        font-size: 35px;
     }
 }
 
@@ -158,9 +159,8 @@ h1 {
 }
 
 .seccion {
-    width:22%;
-    margin: 0 
-    auto;
+    width: 22%;
+    margin: 0 auto;
 
     ul {
         margin: 0;
@@ -217,7 +217,7 @@ li .muestra {
     max-width: 100%;
     height: 4.5vh;
     aspect-ratio: 1/1;
-    margin:1em auto;
+    margin: 1em auto;
 
     h1 {
         color: white;
@@ -226,7 +226,7 @@ li .muestra {
         font-size: 28px;
         text-align: left;
         position: absolute;
-        margin-top:7em;
+        margin-top: 7em;
     }
 
     img {
@@ -237,13 +237,13 @@ li .muestra {
     svg {
         display: none;
         position: absolute;
-        left:1.5vh;
+        left: 1.5vh;
         width: 3.5em;
         height: 3.5em;
-        border:5px solid #fff;
+        border: 5px solid #fff;
         background: #fff;
         border-radius: 50%;
-        padding:1em;
+        padding: 1em;
     }
 }
 
@@ -290,17 +290,18 @@ li p {
 }
 
 .precios {
-    max-width:90%;
+    max-width: 90%;
     display: flex;
     justify-content: space-between;
     margin: auto;
 }
+
 .precio-articulo {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 45px;
     color: #fff;
-    background:#222e60;
+    background: #222e60;
     border: 1px solid #e0e0e0;
     border-radius: 30px;
     padding: 12px 22px;
@@ -312,11 +313,12 @@ li p {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-.precio-sala,.precio-terraza {
-    width:max-content;
+.precio-sala,
+.precio-terraza {
+    width: max-content;
     display: flex;
     align-items: center;
-    margin-right:0.3em;
+    margin-right: 0.3em;
 }
 
 .vinos {
@@ -360,53 +362,60 @@ li p {
             margin: 0 auto;
             padding: 0 5% 0 2.5%;
             font-size: 40px;
-            max-width:65% !important;
+            max-width: 65% !important;
 
         }
     }
 
 }
 
-/* @media (min-width: 600px) {
-    .titulo_principal {
-        h1 {
-            font-size: 36px;
-        }
+#mensaje-orientacion {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111;
+    color: white;
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 5rem 2rem 2rem 2rem;
+}
+
+#mensaje-orientacion svg {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+    animation: rotate 2s infinite ease-in-out;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
     }
 
-    .titulo {
-        h2 {
-            text-align: center;
-            font-size: 40px;
-        }
+    25% {
+        transform: rotate(10deg);
     }
 
-    .descripcion-plato {
-        font-size: 26px;
+    50% {
+        transform: rotate(-10deg);
     }
 
-    .vinos {
-        .titulo h2 {
-            font-size: 24px;
-        }
+    75% {
+        transform: rotate(10deg);
     }
 
-    .vino {
-
-
-        .descripcion-plato {
-            font-size: 20px !important;
-        }
+    100% {
+        transform: rotate(0deg);
     }
+}
 
-    .precio-articulo {
-        font-size: 40px;
-        text-align: center;
-    }
-
-    .footer {
-        p,span {
-            font-size: 20px !important;
-        }
-    }
-} */
+#contenido-principal {
+    display: block;
+}
