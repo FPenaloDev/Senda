@@ -9,6 +9,676 @@
 </head>
 
 <body>
+    <script type="module">
+        import { precios } from './js/precios.js';
+        import { titulos } from './js/titulos.js';
+        import { ensaladas } from './js/ensaladas.js';
+        import { arroces } from './js/arroces.js';
+        import { carnes } from './js/carnes.js';
+        import { pescados } from './js/pescados.js';
+        import { croquetas } from './js/croquetas.js';
+        import { raciones } from './js/raciones.js';
+        import { baguettes } from './js/baguettes.js';
+        import { sandwichs } from './js/sandwich.js';
+        import { tostas } from './js/tostas.js';
+        import { hamburguesas } from './js/hamburguesas.js';
+        import { pizzas } from './js/pizzas.js';
+        import { postres } from './js/postres.js';
+        import { vinos } from './js/vinos.js';
+        import { cartaDia } from './js/cartaDia.js';
+
+
+        let cartaDiaActiva = false;
+        function mostrarCartaNoche() {
+            const pantalla = document.querySelector('.pantalla');
+            pantalla.style.display = 'none';
+        }
+
+        function mostrarCartaDia() {
+            const pantalla = document.querySelector('.pantalla');
+            pantalla.style.display = 'none';
+
+            import('./js/cartaDia.js').then((modulo) => {
+                modulo.cartaDia();
+            }).catch((error) => {
+                console.error('Error al cargar el módulo:', error);
+            });
+        }
+        document.querySelector('.pantalla .dia').addEventListener('click', () => {
+            cartaDiaActiva = true;
+            mostrarCartaDia();
+        });
+        document.querySelector('.pantalla .noche').addEventListener('click', () => {
+            cartaDiaActiva = false;
+            mostrarCartaNoche();
+
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const titulos = document.querySelectorAll('.titulo_principal');
+
+            titulos.forEach(titulo => {
+                const contenido = titulo.nextElementSibling;
+                if (contenido) {
+                    contenido.style.display = 'none';
+                }
+                titulo.innerHTML += `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#b75a03" fill-rule="evenodd" stroke="#b75a03" stroke-linejoin="round" stroke-width="4" d="M44 40.836q-7.34-8.96-13.036-10.168t-10.846-.365V41L4 23.545L20.118 7v10.167q9.523.075 16.192 6.833q6.668 6.758 7.69 16.836Z" clip-rule="evenodd"/></svg>
+                `;
+                titulo.addEventListener('click', () => {
+                    if (contenido.style.display === 'none') {
+                        document.querySelector('.portada').style.display = 'none';
+                        document.querySelectorAll('.seccion').forEach(seccion => {
+                            seccion.style.display = 'none';
+                        });
+                        titulo.style.height = "8vh";
+                        titulo.querySelector('h1').style.display = 'block';
+                        titulo.querySelector('h1').style.position = 'static';
+                        titulo.querySelector('h1').style.marginTop = '0';
+                        titulo.querySelector('h1').style.fontSize = '60px';
+                        titulo.querySelector('svg').style.display = 'block';
+                        titulo.style.width = "100%";
+                        titulo.style.background = "#b75a03";
+                        titulo.style.border = "none";
+                        titulo.style.justifyContent = "left";
+                        titulo.style.margin = "0 auto";
+                        titulo.querySelector('img').style.marginLeft = '7.5vh';
+                        titulo.style.borderRadius = "0%";
+                        titulo.parentElement.style.display = 'flex';
+                        titulo.parentElement.style.flexDirection = 'column';
+                        titulo.parentElement.style.width = '100vw';
+                        titulo.parentElement.style.paddingTop = '9vh';
+                        titulo.nextElementSibling.style.marginTop = '8vh';
+                        titulo.nextElementSibling.style.paddingBottom = '9vh';
+                        titulo.style.position = 'fixed';
+                        document.querySelector('.productos').style.top = 0;
+                        document.querySelector('nav').style.borderRadius = '0';
+                        contenido.style.display = 'block';
+                    } else {
+                        if (cartaDiaActiva) {
+                            mostrarCartaDia();
+                        } else {
+                            mostrarCartaNoche();
+                        }
+                        document.querySelector('.portada').style.display = 'block';
+                        document.querySelectorAll('.seccion').forEach(seccion => {
+                            seccion.style.display = 'flex';
+                        });
+                        titulo.style.height = "5vh";
+                        titulo.querySelector('h1').style.display = 'flex';
+                        titulo.querySelector('h1').style.position = 'absolute';
+                        titulo.querySelector('h1').style.marginTop = '7em';
+                        titulo.querySelector('h1').style.fontSize = '28px';
+                        titulo.querySelector('svg').style.display = 'none';
+                        titulo.style.width = "max-content";
+                        titulo.style.background = "#FFF";
+                        titulo.style.border = "3px solid #000";
+                        titulo.style.borderBottom = "15px solid #000";
+                        titulo.style.justifyContent = "center";
+                        titulo.style.margin = "1em auto";
+                        titulo.querySelector('img').style.marginLeft = '0vh';
+                        titulo.style.borderRadius = "50%";
+                        titulo.parentElement.style.display = 'flex';
+                        titulo.parentElement.style.flexDirection = 'column';
+                        titulo.parentElement.style.width = '22vw';
+                        titulo.parentElement.style.paddingTop = '0vh';
+                        titulo.nextElementSibling.style.marginTop = '0vh';
+                        titulo.nextElementSibling.style.paddingBottom = '9vh';
+                        titulo.style.position = 'static';
+                        document.querySelector('.productos').style.top = '42.5vh';
+                        document.querySelector('.productos').style.width = '100%';
+                        document.querySelector('nav').style.borderRadius = '0 0 150px 150px';
+                        contenido.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // insertarPrecios.js
+
+        document.addEventListener('DOMContentLoaded', () => {
+            for (const selector in precios) {
+                const { sala, terraza } = precios[selector];
+                const elementos = document.querySelectorAll(selector);
+
+                elementos.forEach((elemento) => {
+                    const li = elemento.tagName === 'LI' ? elemento : elemento.closest('li');
+                    if (!li) return;
+                    const precios = document.createElement('div');
+                    precios.className = 'precios';
+                    li.appendChild(precios);
+                    // Contenedor de precio para SALA
+                    const divSala = document.createElement('div');
+                    divSala.className = 'precio-articulo';
+
+                    const textoSala = document.createElement('span');
+                    textoSala.className = 'precio-sala';
+                    textoSala.innerHTML = '<span>SALA</span>';
+                    divSala.appendChild(textoSala);
+
+                    const valorSala = document.createElement('span');
+                    valorSala.textContent = sala;
+                    divSala.appendChild(valorSala);
+
+                    precios.appendChild(divSala);
+
+                    // Contenedor de precio para TERRAZA
+                    const divTerraza = document.createElement('div');
+                    divTerraza.className = 'precio-articulo';
+
+                    const textoTerraza = document.createElement('span');
+                    textoTerraza.className = 'precio-terraza';
+                    textoTerraza.innerHTML = '<span>TERRAZA</span>';
+                    divTerraza.appendChild(textoTerraza);
+
+                    const valorTerraza = document.createElement('span');
+                    valorTerraza.textContent = terraza;
+                    divTerraza.appendChild(valorTerraza);
+
+                    precios.appendChild(divTerraza);
+                });
+            }
+        });
+
+        // Botones De Idioma
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const titulo = document.querySelectorAll('.titulo h2');
+            titulo.forEach(item => {
+                item.textContent = item.textContent.toUpperCase();
+            })
+
+            const esBtn = document.querySelector('nav img[alt="Español"]');
+            const enBtn = document.querySelector('nav img[alt="Inglés"]');
+            const frBtn = document.querySelector('nav img[alt="Francés"]');
+
+            esBtn.addEventListener('click', () => {
+                document.querySelector('.pantalla h1').innerHTML = `Selecciona una Carta`;
+                document.querySelector('.pantalla .dia').innerHTML = `Carta Día`;
+                document.querySelector('.pantalla .noche').innerHTML = `Carta Noche`;
+
+                // Traducir títulos principales
+                titulos.forEach(item => {
+                    const el = document.querySelector(item.selector);
+                    if (el) el.textContent = item.es;
+                });
+
+                ensaladas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                arroces.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                carnes.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                pescados.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                croquetas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                raciones.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                baguettes.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                sandwichs.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                tostas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                hamburguesas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                pizzas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                postres.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+                vinos.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.es.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
+                });
+
+
+                document.querySelector('.info.pizzas span').textContent = 'INGREDIENTE EXTRA (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span1').textContent = 'INGREDIENTE EXTRA (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span2').textContent = 'PATATAS (1.00€)';
+
+                document.querySelector('.footer p').textContent = 'SUPLEMENTO DE TERRAZA';
+
+                document.querySelector('.footer .span1').textContent = 'BEBIDAS (0,20€)';
+
+                document.querySelector('.footer .span2').textContent = 'COMIDAS (0,50€)';
+
+
+            });
+
+            enBtn.addEventListener('click', () => {
+
+                document.querySelector('.pantalla h1').innerHTML = `Choose a menu`;
+                document.querySelector('.pantalla .dia').innerHTML = `Day Menu`;
+                document.querySelector('.pantalla .noche').innerHTML = `Evening Menu`;
+
+                titulos.forEach(item => {
+                    const el = document.querySelector(item.selector);
+                    if (el) el.textContent = item.en;
+                });
+
+                ensaladas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                arroces.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                carnes.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                pescados.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                croquetas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                raciones.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                baguettes.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                sandwichs.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                tostas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                hamburguesas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                pizzas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                postres.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                vinos.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.en.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
+                });
+
+                document.querySelector('.info.pizzas span').textContent = 'EXTRA INGREDIENT (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span1').textContent = 'EXTRA INGREDIENT (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span2').textContent = 'POTATOES (1.00€)';
+
+                document.querySelector('.footer p').textContent = 'TERRACE SUPPLEMENT';
+
+                document.querySelector('.footer .span1').textContent = 'DRINKS (0,20€)';
+
+                document.querySelector('.footer .span2').textContent = 'MEALS (0,50€)';
+            });
+
+            frBtn.addEventListener('click', () => {
+
+                document.querySelector('.pantalla h1').innerHTML = `Choisissez une carte`;
+                document.querySelector('.pantalla .dia').innerHTML = `Menu du midi`;
+                document.querySelector('.pantalla .noche').innerHTML = `Menu du soir`;
+                titulos.forEach(item => {
+                    const el = document.querySelector(item.selector);
+                    if (el) el.textContent = item.fr;
+                });
+
+                ensaladas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                arroces.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                carnes.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                pescados.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                croquetas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                raciones.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                baguettes.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                sandwichs.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                tostas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                hamburguesas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                pizzas.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                postres.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                vinos.forEach(item => {
+                    const titleEl = document.querySelector(item.selectorTitle);
+                    const descriptionEl = document.querySelector(item.selectorDescription);
+                    const allergensEl = document.querySelector(item.selectorAllergens);
+
+                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
+                    if (descriptionEl) descriptionEl.innerHTML = item.fr.description;
+                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
+                });
+
+                document.querySelector('.info.pizzas span').textContent = 'INGRÉDIENT SUPPLÉMENTAIRE (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span1').textContent = 'INGRÉDIENT SUPPLÉMENTAIRE (1.00€)';
+
+                document.querySelector('.info.hamburguesas .span2').textContent = 'POMMES DE TERRE (1.00€)';
+
+                document.querySelector('.footer p').textContent = 'SUPPLÉMENT TERRASSE';
+
+                document.querySelector('.footer .span1').textContent = 'BOISSONS (0,20€)';
+
+                document.querySelector('.footer .span2').textContent = 'REPAS (0,50€)';
+
+            });
+
+        });
+
+        function checkOrientation() {
+            const isLandscape = window.innerWidth > window.innerHeight;
+            const warning = document.getElementById('mensaje-orientacion');
+            const content = document.getElementById('contenido-principal');
+
+            if (isLandscape) {
+                warning.style.display = 'flex';
+                content.style.display = 'none';
+            } else {
+                warning.style.display = 'none';
+                content.style.display = 'block';
+                document.querySelector('.productos').style.width = '100%';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', checkOrientation);
+        window.addEventListener('load', checkOrientation);
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('orientationchange', checkOrientation);
+    </script>
     <div id="mensaje-orientacion">
         <!-- Icono SVG animado -->
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100" height="100" fill="none">
@@ -35,6 +705,14 @@
         <p>Este sitio solo funciona en modo vertical.</p>
     </div>
     <div id="contenido-principal" class="app">
+        <div class="pantalla">
+            <img src="recursos/portada.png" alt="">
+            <h1>Selecciona una carta</h1>
+            <div class="botones">
+                <button class="dia" onclick="mostrarCartaDia()">Carta Día</button>
+                <button class="noche">Carta Noche</button>
+            </div>
+        </div>
         <nav>
             <!-- <img src="recursos/logo_senda.png" alt="" class="logo"> -->
             <img class="bandera" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="Español">
@@ -1830,630 +2508,6 @@
         </div>
     </div>
 
-    <script type="module">
-        import { precios } from './js/precios.js';
-        import { titulos } from './js/titulos.js';
-        import { ensaladas } from './js/ensaladas.js';
-        import { arroces } from './js/arroces.js';
-        import { carnes } from './js/carnes.js';
-        import { pescados } from './js/pescados.js';
-        import { croquetas } from './js/croquetas.js';
-        import { raciones } from './js/raciones.js';
-        import { baguettes } from './js/baguettes.js';
-        import { sandwichs } from './js/sandwich.js';
-        import { tostas } from './js/tostas.js';
-        import { hamburguesas } from './js/hamburguesas.js';
-        import { pizzas } from './js/pizzas.js';
-        import { postres } from './js/postres.js';
-        import { vinos } from './js/vinos.js';
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const titulos = document.querySelectorAll('.titulo_principal');
-
-            titulos.forEach(titulo => {
-                const contenido = titulo.nextElementSibling;
-                if (contenido) {
-                    contenido.style.display = 'none';
-                }
-                titulo.innerHTML += `
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#b75a03" fill-rule="evenodd" stroke="#b75a03" stroke-linejoin="round" stroke-width="4" d="M44 40.836q-7.34-8.96-13.036-10.168t-10.846-.365V41L4 23.545L20.118 7v10.167q9.523.075 16.192 6.833q6.668 6.758 7.69 16.836Z" clip-rule="evenodd"/></svg>
-                `;
-                titulo.addEventListener('click', () => {
-                    if (contenido.style.display === 'none') {
-                        document.querySelector('.portada').style.display = 'none';
-                        document.querySelectorAll('.seccion').forEach(seccion => {
-                            seccion.style.display = 'none';
-                        });
-                        titulo.style.height = "8vh";
-                        titulo.querySelector('h1').style.display = 'block';
-                        titulo.querySelector('h1').style.position = 'static';
-                        titulo.querySelector('h1').style.marginTop = '0';
-                        titulo.querySelector('h1').style.fontSize = '60px';
-                        titulo.querySelector('svg').style.display = 'block';
-                        titulo.style.width = "100%";
-                        titulo.style.background = "#b75a03";
-                        titulo.style.border = "none";
-                        titulo.style.justifyContent = "left";
-                        titulo.style.margin = "0 auto";
-                        titulo.querySelector('img').style.marginLeft = '7.5vh';
-                        titulo.style.borderRadius = "0%";
-                        titulo.parentElement.style.display = 'flex';
-                        titulo.parentElement.style.flexDirection = 'column';
-                        titulo.parentElement.style.width = '100vw';
-                        titulo.parentElement.style.paddingTop = '9vh';
-                        titulo.nextElementSibling.style.marginTop = '8vh';
-                        titulo.nextElementSibling.style.paddingBottom = '9vh';
-                        titulo.style.position = 'fixed';
-                        document.querySelector('.productos').style.top = 0;
-                        document.querySelector('nav').style.borderRadius = '0';
-                        contenido.style.display = 'block';
-                    } else {
-                        document.querySelector('.portada').style.display = 'block';
-                        document.querySelectorAll('.seccion').forEach(seccion => {
-                            seccion.style.display = 'flex';
-                        });
-                        titulo.style.height = "5vh";
-                        titulo.querySelector('h1').style.display = 'flex';
-                        titulo.querySelector('h1').style.position = 'absolute';
-                        titulo.querySelector('h1').style.marginTop = '7em';
-                        titulo.querySelector('h1').style.fontSize = '28px';
-                        titulo.querySelector('svg').style.display = 'none';
-                        titulo.style.width = "max-content";
-                        titulo.style.background = "#FFF";
-                        titulo.style.border = "3px solid #000";
-                        titulo.style.borderBottom = "15px solid #000";
-                        titulo.style.justifyContent = "center";
-                        titulo.style.margin = "1em auto";
-                        titulo.querySelector('img').style.marginLeft = '0vh';
-                        titulo.style.borderRadius = "50%";
-                        titulo.parentElement.style.display = 'flex';
-                        titulo.parentElement.style.flexDirection = 'column';
-                        titulo.parentElement.style.width = '22vw';
-                        titulo.parentElement.style.paddingTop = '0vh';
-                        titulo.nextElementSibling.style.marginTop = '0vh';
-                        titulo.nextElementSibling.style.paddingBottom = '9vh';
-                        titulo.style.position = 'static';
-                        document.querySelector('.productos').style.top = '42.5vh';
-                        document.querySelector('.productos').style.width = '100%';
-                        document.querySelector('nav').style.borderRadius = '0 0 150px 150px';
-                        contenido.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-
-
-        // insertarPrecios.js
-
-        document.addEventListener('DOMContentLoaded', () => {
-            for (const selector in precios) {
-                const { sala, terraza } = precios[selector];
-                const elementos = document.querySelectorAll(selector);
-
-                elementos.forEach((elemento) => {
-                    const li = elemento.tagName === 'LI' ? elemento : elemento.closest('li');
-                    if (!li) return;
-                    const precios = document.createElement('div');
-                    precios.className = 'precios';
-                    li.appendChild(precios);
-                    // Contenedor de precio para SALA
-                    const divSala = document.createElement('div');
-                    divSala.className = 'precio-articulo';
-
-                    const textoSala = document.createElement('span');
-                    textoSala.className = 'precio-sala';
-                    textoSala.innerHTML = '<span>SALA</span>';
-                    divSala.appendChild(textoSala);
-
-                    const valorSala = document.createElement('span');
-                    valorSala.textContent = sala;
-                    divSala.appendChild(valorSala);
-
-                    precios.appendChild(divSala);
-
-                    // Contenedor de precio para TERRAZA
-                    const divTerraza = document.createElement('div');
-                    divTerraza.className = 'precio-articulo';
-
-                    const textoTerraza = document.createElement('span');
-                    textoTerraza.className = 'precio-terraza';
-                    textoTerraza.innerHTML = '<span>TERRAZA</span>';
-                    divTerraza.appendChild(textoTerraza);
-
-                    const valorTerraza = document.createElement('span');
-                    valorTerraza.textContent = terraza;
-                    divTerraza.appendChild(valorTerraza);
-
-                    precios.appendChild(divTerraza);
-                });
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const titulo = document.querySelectorAll('.titulo h2');
-            titulo.forEach(item => {
-                item.textContent = item.textContent.toUpperCase();
-            })
-
-            const esBtn = document.querySelector('nav img[alt="Español"]');
-            const enBtn = document.querySelector('nav img[alt="Inglés"]');
-            const frBtn = document.querySelector('nav img[alt="Francés"]');
-
-            esBtn.addEventListener('click', () => {
-                // Traducir títulos principales
-                titulos.forEach(item => {
-                    const el = document.querySelector(item.selector);
-                    if (el) el.textContent = item.es;
-                });
-
-                ensaladas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                arroces.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                carnes.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                pescados.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                croquetas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                raciones.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                baguettes.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                sandwichs.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                tostas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                hamburguesas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                pizzas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                postres.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.innerHTML = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-                vinos.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.es.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.innerHTML = item.es.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENE <br></strong>&nbsp;<i> ${item.es.allergens.join(", ")}</i>`;
-                });
-
-
-                document.querySelector('.info.pizzas span').textContent = 'INGREDIENTE EXTRA (1.00€)';
-
-                document.querySelector('.info.hamburguesas .span1').textContent = 'INGREDIENTE EXTRA (1.00€)';
-
-                document.querySelector('.info.hamburguesas .span2').textContent = 'PATATAS (1.00€)';
-
-                document.querySelector('.footer p').textContent = 'SUPLEMENTO DE TERRAZA';
-
-                document.querySelector('.footer .span1').textContent = 'BEBIDAS (0,20€)';
-
-                document.querySelector('.footer .span2').textContent = 'COMIDAS (0,50€)';
-
-
-            });
-
-            enBtn.addEventListener('click', () => {
-                titulos.forEach(item => {
-                    const el = document.querySelector(item.selector);
-                    if (el) el.textContent = item.en;
-                });
-
-                ensaladas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                arroces.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                carnes.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                pescados.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                croquetas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                raciones.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                baguettes.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                sandwichs.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                tostas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                hamburguesas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                pizzas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                postres.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.innerHTML = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                vinos.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.en.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.innerHTML = item.en.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTAINS <br></strong>&nbsp;<i> ${item.en.allergens.join(", ")}</i>`;
-                });
-
-                document.querySelector('.info.pizzas span').textContent = 'EXTRA INGREDIENT (1.00€)';
-
-                document.querySelector('.info.hamburguesas .span1').textContent = 'EXTRA INGREDIENT (1.00€)';
-
-                document.querySelector('.info.hamburguesas .span2').textContent = 'POTATOES (1.00€)';
-
-                document.querySelector('.footer p').textContent = 'TERRACE SUPPLEMENT';
-
-                document.querySelector('.footer .span1').textContent = 'DRINKS (0,20€)';
-
-                document.querySelector('.footer .span2').textContent = 'MEALS (0,50€)';
-            });
-
-            frBtn.addEventListener('click', () => {
-                titulos.forEach(item => {
-                    const el = document.querySelector(item.selector);
-                    if (el) el.textContent = item.fr;
-                });
-
-                ensaladas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                arroces.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                carnes.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                pescados.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                croquetas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                raciones.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                baguettes.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                sandwichs.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                tostas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                hamburguesas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                pizzas.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.textContent = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                postres.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.innerHTML = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                vinos.forEach(item => {
-                    const titleEl = document.querySelector(item.selectorTitle);
-                    const descriptionEl = document.querySelector(item.selectorDescription);
-                    const allergensEl = document.querySelector(item.selectorAllergens);
-
-                    if (titleEl) titleEl.textContent = item.fr.title.toUpperCase();
-                    if (descriptionEl) descriptionEl.innerHTML = item.fr.description;
-                    if (allergensEl) allergensEl.innerHTML = `<strong>CONTIENT <br></strong>&nbsp;<i> ${item.fr.allergens.join(", ")}</i>`;
-                });
-
-                document.querySelector('.info.pizzas span').textContent = 'INGRÉDIENT SUPPLÉMENTAIRE (1.00€)';
-
-                document.querySelector('.info.hamburguesas .span1').textContent = 'INGRÉDIENT SUPPLÉMENTAIRE (1.00€)';
-
-                document.querySelector('.info.hamburguesas .span2').textContent = 'POMMES DE TERRE (1.00€)';
-
-                document.querySelector('.footer p').textContent = 'SUPPLÉMENT TERRASSE';
-
-                document.querySelector('.footer .span1').textContent = 'BOISSONS (0,20€)';
-
-                document.querySelector('.footer .span2').textContent = 'REPAS (0,50€)';
-
-            });
-
-        });
-
-        function checkOrientation() {
-            const isLandscape = window.innerWidth > window.innerHeight;
-            const warning = document.getElementById('mensaje-orientacion');
-            const content = document.getElementById('contenido-principal');
-
-            if (isLandscape) {
-                warning.style.display = 'flex';
-                content.style.display = 'none';
-            } else {
-                warning.style.display = 'none';
-                content.style.display = 'block';
-                document.querySelector('.productos').style.width = '100%';
-            }
-        }
-        document.addEventListener('DOMContentLoaded', checkOrientation);
-        window.addEventListener('load', checkOrientation);
-        window.addEventListener('resize', checkOrientation);
-        window.addEventListener('orientationchange', checkOrientation);
-    </script>
 </body>
 
 </html>
