@@ -47,10 +47,17 @@
         document.querySelector('.pantalla .dia').addEventListener('click', () => {
             cartaDiaActiva = true;
             mostrarCartaDia();
+            document.querySelectorAll('.seccion').forEach(seccion => {
+                seccion.style.width = '33%';
+            })
         });
         document.querySelector('.pantalla .noche').addEventListener('click', () => {
             cartaDiaActiva = false;
             mostrarCartaNoche();
+            document.querySelectorAll('.seccion').forEach(seccion => {
+                seccion.style.width = '33%';
+            })
+
 
         });
 
@@ -72,7 +79,7 @@
                         document.querySelectorAll('.seccion').forEach(seccion => {
                             seccion.style.display = 'none';
                         });
-                        titulo.style.height = "8vh";
+                        titulo.style.height = "10vh";
                         titulo.querySelector('h1').style.display = 'block';
                         titulo.querySelector('h1').style.position = 'static';
                         titulo.querySelector('h1').style.marginTop = '0';
@@ -81,9 +88,9 @@
                         titulo.style.width = "100%";
                         titulo.style.background = "#b75a03";
                         titulo.style.border = "none";
-                        titulo.style.justifyContent = "left";
+                        titulo.style.justifyContent = "right";
                         titulo.style.margin = "0 auto";
-                        titulo.querySelector('img').style.marginLeft = '7.5vh';
+                        titulo.querySelector('h1').style.marginRight = '2vh';
                         titulo.style.borderRadius = "0%";
                         titulo.parentElement.style.display = 'flex';
                         titulo.parentElement.style.flexDirection = 'column';
@@ -93,7 +100,6 @@
                         titulo.nextElementSibling.style.paddingBottom = '9vh';
                         titulo.style.position = 'fixed';
                         document.querySelector('.productos').style.top = 0;
-                        document.querySelector('nav').style.borderRadius = '0';
                         contenido.style.display = 'block';
                     } else {
                         if (cartaDiaActiva) {
@@ -128,7 +134,6 @@
                         titulo.style.position = 'static';
                         document.querySelector('.productos').style.top = '42.5vh';
                         document.querySelector('.productos').style.width = '100%';
-                        document.querySelector('nav').style.borderRadius = '0 0 150px 150px';
                         contenido.style.display = 'none';
                     }
                 });
@@ -713,15 +718,53 @@
                 <button class="noche">Carta Noche</button>
             </div>
         </div>
-        <nav>
-            <!-- <img src="recursos/logo_senda.png" alt="" class="logo"> -->
-            <img class="bandera" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" alt="Español">
-            <img class="bandera" src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
-                alt="Inglés" height="20px" style="object-fit: cover;">
-            <img class="bandera"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/500px-Flag_of_France.svg.png"
-                alt="Francés">
+        <nav class="plegado">
+            <div class="idiomas">
+                <img class="bandera" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
+                    alt="Español">
+                <div class="opciones">
+                    <img class="bandera"
+                        src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+                        alt="Inglés">
+                    <img class="bandera"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/500px-Flag_of_France.svg.png"
+                        alt="Francés">
+                </div>
+            </div>
+            <div class="flecha-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 42 42"><path fill="#000000" fill-rule="evenodd" d="M13.933 1L34 21.068L14.431 40.637l-4.933-4.933l14.638-14.636L9 5.933z"/></svg></div>
         </nav>
+        <div class="logo">
+            <img src="recursos/logo_senda.png" alt="">
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const nav = document.querySelector('nav');
+                const flecha = nav.querySelector('.flecha-toggle');
+                const banderaPrincipal = nav.querySelector('.idiomas > .bandera');
+                const opciones = nav.querySelectorAll('.opciones .bandera');
+
+                function toggleMenu() {
+                    const abierto = nav.classList.contains('desplegado');
+                    nav.classList.toggle('desplegado', !abierto);
+                    nav.classList.toggle('plegado', abierto);
+                }
+
+                banderaPrincipal.addEventListener('click', toggleMenu);
+                flecha.addEventListener('click', toggleMenu);
+
+                opciones.forEach((opcion) => {
+                    opcion.addEventListener('click', () => {
+                        // Intercambia bandera seleccionada con la principal
+                        [banderaPrincipal.src, opcion.src] = [opcion.src, banderaPrincipal.src];
+                        [banderaPrincipal.alt, opcion.alt] = [opcion.alt, banderaPrincipal.alt];
+
+                        // Cierra el menú
+                        nav.classList.remove('desplegado');
+                        nav.classList.add('plegado');
+                    });
+                });
+            });
+        </script>
         <div class="portada">
             <div class="carrusel">
                 <img src="recursos/menu.png" class="activo" alt="">

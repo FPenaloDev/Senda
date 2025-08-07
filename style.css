@@ -26,9 +26,7 @@ body {
     width: 100vw;
     z-index: 99;
     position: absolute;
-    border-top:5px solid #fff;
     background: #000;
-
 
     h1 {
         width:90%;
@@ -42,7 +40,6 @@ body {
         background:#ffffffb0;
         z-index:101;
         -webkit-text-stroke: 2px black;
-
     }
 
     img {
@@ -53,6 +50,7 @@ body {
         height: 100%;
         object-fit: cover;
     }
+
     .botones {
         position: absolute;
         bottom: 17.5em;
@@ -85,35 +83,115 @@ body {
     }
 }
 
-nav {
+ .logo {
     position: fixed;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: #000000;
-    z-index: 99;
+    background:#000;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 9vh;
-    padding: 5px 0;
-    border-radius: 0 0 150px 150px;
-    border-top:0;
-
+    height: 10vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom:5px solid #000;
 }
 
-nav .logo {
-    max-height: 7.5vh;
-}
-
-nav .bandera {
-    width: 5vh;
-    height: 5vh;
-    margin: 1vh;
-    cursor: pointer;
-    border-radius: 50%;
-    border: 5px solid #fff;
+.logo img {
+    position: absolute;
+    top: 1vh;
+    right: 5vw;
+    max-width: 20em;
+    z-index: 2;
     object-fit: cover;
+} 
 
+nav {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  z-index: 99;
+  left: 0;
+  top:1vh;
+  height: 7vh;
+  padding: 0.5vh 1rem;
+  border-radius: 0 150px 150px 0px;
+  gap: 1rem;
+  transition: width 2s ease;
+  width: fit-content;
+  border:3px solid #fff;
+  border-left:none;
 }
+
+nav .idiomas {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* solo la primera bandera siempre visible */
+nav .idiomas > .bandera {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  border: 3px solid #000;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* ocultar opciones cuando está plegado */
+nav.plegado .opciones {
+  display: none;
+}
+
+/* mostrar opciones cuando está desplegado */
+nav.desplegado .opciones {
+  display: flex;
+  gap: 1rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+nav .opciones .bandera {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  border: 3px solid #000;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* flecha animada */
+.flecha-toggle {
+  font-size: 3.5rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 1.15em;
+    height: 1.15em;
+  }
+}
+
+nav.desplegado .flecha-toggle {
+  transform: rotate(180deg);
+}
+
+/* animación opcional */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 .portada {
     padding-top: 11vh;
