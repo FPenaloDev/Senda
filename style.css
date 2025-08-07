@@ -99,9 +99,9 @@ body {
 
 .logo img {
     position: absolute;
-    top: 1vh;
-    right: 5vw;
-    max-width: 20em;
+    top: 2.5em;
+    right: 10vw;
+    max-width: 15em;
     z-index: 2;
     object-fit: cover;
 } 
