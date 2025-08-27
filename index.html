@@ -86,7 +86,7 @@
                         titulo.querySelector('h1').style.fontSize = '60px';
                         titulo.querySelector('svg').style.display = 'block';
                         titulo.style.width = "100%";
-                        titulo.style.background = "#b75a03";
+                        titulo.style.background = "#000";
                         titulo.style.border = "none";
                         titulo.style.justifyContent = "left";
                         titulo.style.margin = "0 auto";
@@ -718,53 +718,62 @@
                 <button class="noche">Carta Noche</button>
             </div>
         </div>
-        <nav class="plegado">
+        <nav id="language-nav">
             <div class="idiomas">
-                <img class="bandera" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
-                    alt="Español">
-                <div class="opciones">
-                    <img class="bandera"
-                        src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
-                        alt="Inglés">
-                    <img class="bandera"
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/500px-Flag_of_France.svg.png"
-                        alt="Francés">
-                </div>
+                <img class="bandera activa" src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
+                    alt="Español" data-lang="es">
+                <img class="bandera" src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+                    alt="Inglés" data-lang="en">
+                <img class="bandera"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/500px-Flag_of_France.svg.png"
+                    alt="Francés" data-lang="fr">
             </div>
-            <div class="flecha-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 42 42"><path fill="#000000" fill-rule="evenodd" d="M13.933 1L34 21.068L14.431 40.637l-4.933-4.933l14.638-14.636L9 5.933z"/></svg></div>
+            <div class="flecha-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 42 42">
+                    <path fill="#000000" fill-rule="evenodd"
+                        d="M13.933 1L34 21.068L14.431 40.637l-4.933-4.933l14.638-14.636L9 5.933z" />
+                </svg>
+            </div>
         </nav>
-        <div class="logo">
-            <img src="recursos/logo_senda.png" alt="">
-        </div>
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const nav = document.querySelector('nav');
-                const flecha = nav.querySelector('.flecha-toggle');
-                const banderaPrincipal = nav.querySelector('.idiomas > .bandera');
-                const opciones = nav.querySelectorAll('.opciones .bandera');
+            document.addEventListener('DOMContentLoaded', function () {
+                const nav = document.getElementById('language-nav');
+                const flechaToggle = document.querySelector('.flecha-toggle');
+                const banderas = document.querySelectorAll('.bandera');
 
-                function toggleMenu() {
-                    const abierto = nav.classList.contains('desplegado');
-                    nav.classList.toggle('desplegado', !abierto);
-                    nav.classList.toggle('plegado', abierto);
-                }
+                // Inicializar con español seleccionado y nav colapsado
+                nav.classList.add('colapsado');
 
-                banderaPrincipal.addEventListener('click', toggleMenu);
-                flecha.addEventListener('click', toggleMenu);
+                // Manejar clic en la flecha
+                flechaToggle.addEventListener('click', function () {
+                    nav.classList.toggle('colapsado');
+                    nav.classList.toggle('desplegado');
+                });
 
-                opciones.forEach((opcion) => {
-                    opcion.addEventListener('click', () => {
-                        // Intercambia bandera seleccionada con la principal
-                        [banderaPrincipal.src, opcion.src] = [opcion.src, banderaPrincipal.src];
-                        [banderaPrincipal.alt, opcion.alt] = [opcion.alt, banderaPrincipal.alt];
+                // Manejar clic en una bandera
+                banderas.forEach(bandera => {
+                    bandera.addEventListener('click', function () {
+                        // Quitar clase activa de todas las banderas
+                        banderas.forEach(b => b.classList.remove('activa'));
 
-                        // Cierra el menú
+                        // Añadir clase activa a la bandera seleccionada
+                        this.classList.add('activa');
+
+                        // Colapsar el nav
+                        nav.classList.add('colapsado');
                         nav.classList.remove('desplegado');
-                        nav.classList.add('plegado');
+
+                        // Cambiar el idioma (aquí tu lógica para cambiar idioma)
+                        const idiomaSeleccionado = this.getAttribute('data-lang');
+                        console.log('Idioma seleccionado:', idiomaSeleccionado);
                     });
                 });
             });
         </script>
+
+        <div class="logo">
+            <img src="recursos/logo_senda.png" alt="">
+        </div>
         <div class="portada">
             <div class="carrusel">
                 <img src="recursos/menu.png" class="activo" alt="">

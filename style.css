@@ -113,24 +113,43 @@ nav {
   background: #fff;
   z-index: 99;
   left: 0;
-  top:1vh;
+  top: 1vh;
   height: 7vh;
-  padding: 0.5vh 1rem;
+  padding: 0.5vh 3rem;
   border-radius: 0 150px 150px 0px;
   gap: 1rem;
-  transition: width 2s ease;
-  width: fit-content;
-  border:3px solid #fff;
-  border-left:none;
+  transition: all 0.5s ease;
+  width: auto;
+  border: 3px solid #fff;
+  border-left: none;
+  overflow: hidden;
+}
+
+nav.colapsado {
+  width: 7vh;
+}
+
+nav.desplegado {
+  width: auto;
 }
 
 nav .idiomas {
   display: flex;
   align-items: center;
   gap: 1rem;
+  transition: opacity 0.3s ease;
 }
 
-/* solo la primera bandera siempre visible */
+nav.colapsado .idiomas {
+  opacity: 1;
+  pointer-events: none;
+}
+
+nav.desplegado .idiomas {
+  opacity: 1;
+  pointer-events: all;
+}
+
 nav .idiomas > .bandera {
   width: 5vh;
   height: 5vh;
@@ -138,58 +157,48 @@ nav .idiomas > .bandera {
   border: 3px solid #000;
   object-fit: cover;
   cursor: pointer;
-}
-
-/* ocultar opciones cuando está plegado */
-nav.plegado .opciones {
+  transition: transform 0.3s ease, opacity 0.3s ease;
   display: none;
 }
 
-/* mostrar opciones cuando está desplegado */
-nav.desplegado .opciones {
-  display: flex;
-  gap: 1rem;
-  animation: fadeIn 1.5s ease-in-out;
+nav .idiomas > .bandera.activa {
+  display: block;
 }
 
-nav .opciones .bandera {
-  width: 5vh;
-  height: 5vh;
-  border-radius: 50%;
-  border: 3px solid #000;
-  object-fit: cover;
-  cursor: pointer;
+nav.desplegado .idiomas > .bandera {
+  display: block;
 }
 
-/* flecha animada */
+nav.desplegado .idiomas > .bandera:not(.activa) {
+  opacity: 0.7;
+}
+
+nav.desplegado .idiomas > .bandera:not(.activa):hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 .flecha-toggle {
   font-size: 3.5rem;
-  color: white;
+  color: #000;
   cursor: pointer;
-  transition: transform 0.5s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  svg {
-    width: 1.15em;
-    height: 1.15em;
-  }
 }
 
-nav.desplegado .flecha-toggle {
+.flecha-toggle svg {
+  width: 1.15em;
+  height: 1.15em;
+  transition: transform 0.5s ease;
+}
+
+nav.colapsado .flecha-toggle svg {
+  transform: rotate(0deg);
+}
+
+nav.desplegado .flecha-toggle svg {
   transform: rotate(180deg);
-}
-
-/* animación opcional */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 
@@ -375,7 +384,7 @@ li .muestra {
         font-size: 28px;
         text-align: left;
         position: absolute;
-        margin-top: 7em;
+        margin-top: 5.5em;
     }
 
     img {
