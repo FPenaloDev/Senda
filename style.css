@@ -270,12 +270,12 @@ h1 {
 
 .productos {
     position: absolute;
-    top: 42.5vh;
+    top: 39vh;
     border-bottom: none;
     background: #b75a03;
     display: flex;
     flex-wrap: wrap;
-    height: 35%;
+    height: 45%;
 }
 
 .info {
@@ -359,7 +359,7 @@ li .muestra {
     max-width: 70%;
     margin: auto;
     margin-bottom: 15px;
-    font-size: 34px;
+    font-size: 55px;
 }
 
 .titulo_principal {
@@ -373,7 +373,7 @@ li .muestra {
     border-radius: 50%;
     align-items: center;
     max-width: 100%;
-    height: 4.5vh;
+    height: 5.5vh;
     aspect-ratio: 1/1;
     margin: 1em auto;
 
@@ -381,14 +381,14 @@ li .muestra {
         color: white;
         background: none;
         margin: 0;
-        font-size: 28px;
+        font-size: 31px;
         text-align: left;
         position: absolute;
-        margin-top: 5.5em;
+        margin-top: 6.5em;
     }
 
     img {
-        max-width: 6vh;
+        max-width: 8vh;
         object-fit: contain;
     }
 
@@ -440,7 +440,7 @@ li .muestra {
     padding: 10px;
     border-radius: 10px;
     color: #fff;
-    font-size: 30px;
+    font-size: 45px;
 }
 
 li p {
