@@ -343,9 +343,86 @@
             <img src="recursos/portada.webp" alt="">
             <h1>Selecciona una carta</h1>
             <div class="botones">
+                <button id="menu">Menu</button>
                 <button class="dia" onclick="mostrarCartaDia()">Carta Día</button>
                 <button class="noche">Carta Noche</button>
             </div>
+            <div id="overlay" class="overlay">
+                <div class="overlay-content">
+                    <button class="close-btn" id="closeOverlay">×</button>
+                    <iframe id="docFrame" title="Documento"></iframe>
+                </div>
+            </div>
+            <style>
+                /* Overlay */
+                .overlay {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.8);
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 999;
+                }
+
+
+                .overlay-content {
+                    position: relative;
+                    width: 80%;
+                    height: 80%;
+                    background: #fff;
+                    border-radius: 12px;
+                    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                }
+
+
+                iframe {
+                    border: none;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    border-radius: 12px;
+                }
+
+
+                .close-btn {
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    background: rgba(0, 0, 0, 0.6);
+                    color: #fff;
+                    border: none;
+                    border-radius: 50%;
+                    width: 100px;
+                    height: 100px;
+                    font-size: 45px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+
+
+                @media (max-width: 768px) {
+                    .overlay-content {
+                        width: 90%;
+                        height: 80%;
+                    }
+
+                    .close-btn {
+                        width: 100px;
+                        height: 100px;
+                        font-size: 45px;
+                    }
+                }
+            </style>
         </div>
         <nav id="language-nav">
             <div class="idiomas">
@@ -364,6 +441,30 @@
                 </svg>
             </div>
         </nav>
+        <script>
+            const docId = '13fmaj5zM3V9gLqy_DuWoNi1LZEmL0dDV9NNZifrYj14';
+            const previewUrl = `https://docs.google.com/document/d/${docId}/preview`;
+
+            const showDoc = document.getElementById('menu');
+            const overlay = document.getElementById('overlay');
+            const docFrame = document.getElementById('docFrame');
+            const closeOverlay = document.getElementById('closeOverlay');
+            const nav = document.getElementById('language-nav');
+
+            showDoc.addEventListener('click', () => {
+                docFrame.src = previewUrl;
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // evitar scroll de fondo
+                nav.style.opacity = 0;
+            });
+
+            closeOverlay.addEventListener('click', () => {
+                overlay.style.display = 'none';
+                docFrame.src = '';
+                document.body.style.overflow = 'auto';
+                nav.style.opacity = 1;
+            });
+        </script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const nav = document.getElementById('language-nav');
